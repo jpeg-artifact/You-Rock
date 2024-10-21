@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xk4iag2v02yn"]
+[gd_scene load_steps=3 format=3 uid="uid://xk4iag2v02yn"]
 
 [ext_resource type="PackedScene" uid="uid://03ksvlu5j6n8" path="res://Scene/SongProperties/SongProperties.tscn" id="1_yil7n"]
+[ext_resource type="PackedScene" uid="uid://bu0brnnai0f7q" path="res://Scene/TabBar/TabBar.tscn" id="2_vxygo"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -12,3 +13,8 @@ grow_vertical = 2
 
 [node name="SongProperties" parent="." instance=ExtResource("1_yil7n")]
 layout_mode = 1
+
+[node name="TabBar" parent="." instance=ExtResource("2_vxygo")]
+layout_mode = 1
+anchor_right = 0.116
+offset_right = 0.367996

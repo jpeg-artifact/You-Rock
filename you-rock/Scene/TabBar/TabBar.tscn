@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bu0brnnai0f7q"]
+
+[node name="TabBar" type="Control"]
+layout_mode = 3
+anchor_right = 0.03
+anchor_bottom = 0.04
+offset_right = 99.44
+offset_bottom = 0.079998
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileMenuButton" type="MenuButton" parent="HBoxContainer"]
+layout_mode = 2
+text = "File"
+alignment = 0
+item_count = 2
+popup/item_0/text = "Save"
+popup/item_1/text = "Save As..."
+popup/item_1/id = 1
