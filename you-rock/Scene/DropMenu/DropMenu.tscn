@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bwh2styys30xq"]
+[gd_scene load_steps=2 format=3 uid="uid://bwh2styys30xq"]
+
+[ext_resource type="Theme" uid="uid://77804voloaei" path="res://Assets/Theme/Theme.tres" id="1_wbnqq"]
 
 [node name="DropMenu" type="Control"]
 custom_minimum_size = Vector2(0, 57)
@@ -10,16 +12,6 @@ offset_bottom = 27.84
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.129412, 0.14902, 0.180392, 1)
-
 [node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -28,7 +20,7 @@ anchor_bottom = 1.0
 offset_top = 27.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme = ExtResource("1_wbnqq")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
