@@ -5,11 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bx2kajbjp8m74" path="res://Scene/FilePath/FilePath.tscn" id="3_u7hwd"]
 
 [node name="SongProperties" type="Control"]
-custom_minimum_size = Vector2(285, 0)
+custom_minimum_size = Vector2(258, 0)
 layout_mode = 3
-anchor_right = 0.124
 anchor_bottom = 1.0
-offset_right = 142.152
+offset_right = 285.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -23,52 +22,45 @@ grow_vertical = 2
 color = Color(0.211765, 0.239216, 0.290196, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
+layout_mode = 2
 anchor_left = 0.07
-anchor_top = 0.028
-anchor_right = 0.933
-anchor_bottom = 0.969
+anchor_top = 0.037
+anchor_right = 0.94
+anchor_bottom = 0.974
 offset_left = 0.0499992
-offset_top = -0.144001
-offset_right = 0.0950012
-offset_bottom = 0.0879517
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 0.0240002
+offset_right = 0.0999756
+offset_bottom = -0.152039
 
-[node name="BPMInput" parent="VBoxContainer" instance=ExtResource("1_v2mgh")]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(247, 0)
 layout_mode = 2
 
-[node name="LineEdit" parent="VBoxContainer/BPMInput" index="1"]
+[node name="BPMInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_v2mgh")]
+layout_mode = 2
+
+[node name="LineEdit" parent="ScrollContainer/VBoxContainer/BPMInput" index="1"]
 placeholder_text = "Enter Beats Per Minute"
 
-[node name="Label" parent="VBoxContainer/BPMInput" index="2"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/BPMInput" index="2"]
 text = "Beats Per Minute"
 clip_text = true
 
-[node name="SongLengthInput" parent="VBoxContainer" instance=ExtResource("1_v2mgh")]
+[node name="SongLengthInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_v2mgh")]
 layout_mode = 2
 
-[node name="LineEdit" parent="VBoxContainer/SongLengthInput" index="1"]
+[node name="LineEdit" parent="ScrollContainer/VBoxContainer/SongLengthInput" index="1"]
 placeholder_text = "Enter Song Length"
 
-[node name="Label" parent="VBoxContainer/SongLengthInput" index="2"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/SongLengthInput" index="2"]
 text = "Song Length in Seconds
 "
 clip_text = true
 
-[node name="Theme" parent="VBoxContainer" instance=ExtResource("2_tu2ov")]
+[node name="Theme" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_tu2ov")]
 layout_mode = 2
 
-[node name="OptionButton" parent="VBoxContainer/Theme" index="1"]
+[node name="OptionButton" parent="ScrollContainer/VBoxContainer/Theme" index="1"]
 item_count = 4
 popup/item_0/text = "Vulcan"
 popup/item_1/text = "Desert"
@@ -78,31 +70,31 @@ popup/item_2/id = 2
 popup/item_3/text = "Undertale"
 popup/item_3/id = 3
 
-[node name="Label" parent="VBoxContainer/Theme" index="2"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/Theme" index="2"]
 text = "Theme"
 
-[node name="SongNameInput" parent="VBoxContainer" instance=ExtResource("1_v2mgh")]
+[node name="SongNameInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_v2mgh")]
 layout_mode = 2
 
-[node name="LineEdit" parent="VBoxContainer/SongNameInput" index="1"]
+[node name="LineEdit" parent="ScrollContainer/VBoxContainer/SongNameInput" index="1"]
 placeholder_text = "Enter Song Name"
 
-[node name="Label" parent="VBoxContainer/SongNameInput" index="2"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/SongNameInput" index="2"]
 text = "Song Name"
 
-[node name="AuthorNameInput" parent="VBoxContainer" instance=ExtResource("1_v2mgh")]
+[node name="AuthorNameInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_v2mgh")]
 layout_mode = 2
 
-[node name="LineEdit" parent="VBoxContainer/AuthorNameInput" index="1"]
+[node name="LineEdit" parent="ScrollContainer/VBoxContainer/AuthorNameInput" index="1"]
 placeholder_text = "Enter Author Name (of song)"
 
-[node name="Label" parent="VBoxContainer/AuthorNameInput" index="2"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/AuthorNameInput" index="2"]
 text = "Author Name"
 
-[node name="Difficulty" parent="VBoxContainer" instance=ExtResource("2_tu2ov")]
+[node name="Difficulty" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_tu2ov")]
 layout_mode = 2
 
-[node name="OptionButton" parent="VBoxContainer/Difficulty" index="1"]
+[node name="OptionButton" parent="ScrollContainer/VBoxContainer/Difficulty" index="1"]
 item_count = 3
 popup/item_0/text = "Easy"
 popup/item_1/text = "Medium"
@@ -110,32 +102,32 @@ popup/item_1/id = 1
 popup/item_2/text = "Hard"
 popup/item_2/id = 2
 
-[node name="Label" parent="VBoxContainer/Difficulty" index="2"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/Difficulty" index="2"]
 text = "Difficulty"
 
-[node name="SongPath" parent="VBoxContainer" instance=ExtResource("3_u7hwd")]
+[node name="SongPath" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_u7hwd")]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/SongPath" index="1"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/SongPath" index="1"]
 text = "Song Path"
 
-[node name="LineEdit" parent="VBoxContainer/SongPath" index="2"]
+[node name="LineEdit" parent="ScrollContainer/VBoxContainer/SongPath" index="2"]
 placeholder_text = "Enter Song Path"
 
-[node name="PreviewPath" parent="VBoxContainer" instance=ExtResource("3_u7hwd")]
+[node name="PreviewPath" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_u7hwd")]
 layout_mode = 2
 
-[node name="Label" parent="VBoxContainer/PreviewPath" index="1"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/PreviewPath" index="1"]
 text = "Preview Path"
 
-[node name="LineEdit" parent="VBoxContainer/PreviewPath" index="2"]
+[node name="LineEdit" parent="ScrollContainer/VBoxContainer/PreviewPath" index="2"]
 placeholder_text = "Enter Preview Path"
 
-[editable path="VBoxContainer/BPMInput"]
-[editable path="VBoxContainer/SongLengthInput"]
-[editable path="VBoxContainer/Theme"]
-[editable path="VBoxContainer/SongNameInput"]
-[editable path="VBoxContainer/AuthorNameInput"]
-[editable path="VBoxContainer/Difficulty"]
-[editable path="VBoxContainer/SongPath"]
-[editable path="VBoxContainer/PreviewPath"]
+[editable path="ScrollContainer/VBoxContainer/BPMInput"]
+[editable path="ScrollContainer/VBoxContainer/SongLengthInput"]
+[editable path="ScrollContainer/VBoxContainer/Theme"]
+[editable path="ScrollContainer/VBoxContainer/SongNameInput"]
+[editable path="ScrollContainer/VBoxContainer/AuthorNameInput"]
+[editable path="ScrollContainer/VBoxContainer/Difficulty"]
+[editable path="ScrollContainer/VBoxContainer/SongPath"]
+[editable path="ScrollContainer/VBoxContainer/PreviewPath"]
