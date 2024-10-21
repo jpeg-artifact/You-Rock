@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bwh2styys30xq"]
+
+[node name="DropMenu" type="Control"]
+custom_minimum_size = Vector2(0, 57)
+layout_mode = 3
+anchor_right = 0.148
+anchor_bottom = 0.045
+offset_right = 0.503998
+offset_bottom = 27.84
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.035
+anchor_right = 0.996
+anchor_bottom = 0.467
+offset_top = 0.005
+offset_right = -0.0920105
+offset_bottom = 0.381001
+text = "Text"

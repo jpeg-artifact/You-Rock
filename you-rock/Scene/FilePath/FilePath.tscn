@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx2kajbjp8m74"]
+
+[ext_resource type="Texture2D" uid="uid://b1tl47xsvj6b4" path="res://Assets/Symbols/material-symbols--folder.png" id="1_1koid"]
+
+[node name="FilePath" type="Control"]
+custom_minimum_size = Vector2(0, 57)
+layout_mode = 3
+anchor_right = 0.168
+anchor_bottom = 0.088
+offset_right = -0.536011
+offset_bottom = -0.0240059
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.035
+anchor_right = 0.996
+anchor_bottom = 0.467
+offset_top = 0.005
+offset_right = -0.0920105
+offset_bottom = 0.381001
+text = "Text"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.161
+anchor_top = 0.456
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.0730019
+offset_top = 0.00799751
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Path"
+clear_button_enabled = true
+flat = true
+draw_control_chars = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.474
+anchor_right = 0.155
+anchor_bottom = 1.0
+offset_top = -0.0180016
+offset_right = 0.0849991
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_1koid")
+flat = true
+icon_alignment = 1
+expand_icon = true
