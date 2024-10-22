@@ -3,10 +3,10 @@ using System;
 
 public partial class StringInput : Control
 {
-	[Signal] public delegate void StringEnteredEventHandler(string newText);
+	[Signal] public delegate void StringEditedEventHandler(string newText);
 
-	private void OnLineEditTextSubmitted(string newText)
+	private void OnLineeditTextChanged(string newText)
 	{
-		EmitSignal(SignalName.StringEntered, newText);
+		EmitSignal(SignalName.StringEdited, newText);
 	}
 }

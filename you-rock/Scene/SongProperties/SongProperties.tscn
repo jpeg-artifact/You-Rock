@@ -122,7 +122,12 @@ layout_mode = 2
 [node name="Label" parent="ScrollContainer/VBoxContainer/PreviewPath" index="0"]
 text = "Preview Path"
 
+[connection signal="StringEdited" from="ScrollContainer/VBoxContainer/BPMInput" to="." method="OnBpmInputStringEdited"]
+[connection signal="StringEdited" from="ScrollContainer/VBoxContainer/SongLengthInput" to="." method="OnSongLengthInputStringEdited"]
 [connection signal="OptionChoosen" from="ScrollContainer/VBoxContainer/Theme" to="." method="OnThemeOptionChoosen"]
+[connection signal="StringEdited" from="ScrollContainer/VBoxContainer/SongNameInput" to="." method="OnSongNameInputStringEdited"]
+[connection signal="StringEdited" from="ScrollContainer/VBoxContainer/AuthorNameInput" to="." method="OnAuthorNameInputStringEdited"]
+[connection signal="OptionChoosen" from="ScrollContainer/VBoxContainer/Difficulty" to="." method="OnDifficultyOptionChoosen"]
 
 [editable path="ScrollContainer/VBoxContainer/BPMInput"]
 [editable path="ScrollContainer/VBoxContainer/SongLengthInput"]

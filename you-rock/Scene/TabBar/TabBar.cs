@@ -15,14 +15,16 @@ public partial class TabBar : Control
 		saveAsFileDialig = GetNode<FileDialog>("SaveAsFileDialog");
 		saveManager = GetNode<SaveManager>("/root/Main/SaveManager");
 
-		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) SaveAs(); };
-		GD.Print("Path: " + globals.ProjectPath);
+		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 0) GD.Print("Open file!"); };
+		// Save
 		fileMenuButton.GetPopup().IdPressed += (long id) => { 
-			if (id == 0 && globals.ProjectPath != string.Empty)
+			if (id == 1 && globals.ProjectPath != string.Empty)
 				Save();
-			else
+			else if (id == 1)
 				SaveAs();
 			};
+		// Save as
+		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 2) SaveAs(); };
     }
 
 	private void Save()

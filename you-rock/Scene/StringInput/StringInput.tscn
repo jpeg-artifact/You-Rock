@@ -41,4 +41,4 @@ offset_right = -0.0920105
 offset_bottom = 0.381001
 text = "Text"
 
-[connection signal="text_submitted" from="LineEdit" to="." method="OnLineEditTextSubmitted"]
+[connection signal="text_changed" from="LineEdit" to="." method="OnLineeditTextChanged"]
