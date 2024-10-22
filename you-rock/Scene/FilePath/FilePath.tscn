@@ -37,6 +37,7 @@ offset_top = 0.00799751
 grow_horizontal = 2
 grow_vertical = 2
 placeholder_text = "Path"
+editable = false
 clear_button_enabled = true
 draw_control_chars = true
 

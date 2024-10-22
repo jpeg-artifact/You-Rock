@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwh2styys30xq"]
+[gd_scene load_steps=3 format=3 uid="uid://bwh2styys30xq"]
 
+[ext_resource type="Script" path="res://Scene/DropMenu/DropMenu.cs" id="1_bl63a"]
 [ext_resource type="Theme" uid="uid://77804voloaei" path="res://Assets/Theme/Theme.tres" id="1_wbnqq"]
 
 [node name="DropMenu" type="Control"]
@@ -11,6 +12,7 @@ offset_right = 0.503998
 offset_bottom = 27.84
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bl63a")
 
 [node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 1
@@ -32,3 +34,5 @@ offset_top = 0.005
 offset_right = -0.0920105
 offset_bottom = 0.381001
 text = "Text"
+
+[connection signal="item_selected" from="OptionButton" to="." method="OnOptionButtonItemSelected"]

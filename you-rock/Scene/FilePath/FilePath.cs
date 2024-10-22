@@ -3,6 +3,7 @@ using System;
 
 public partial class FilePath : Control
 {
+	[Signal] public delegate void FilePathChoosenEventHandler(string path);
 	private FileDialog fileDialog;
 	private LineEdit lineEdit;
 

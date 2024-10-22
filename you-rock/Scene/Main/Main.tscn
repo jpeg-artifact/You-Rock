@@ -1,27 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://xk4iag2v02yn"]
+[gd_scene load_steps=3 format=3 uid="uid://xk4iag2v02yn"]
 
-[ext_resource type="PackedScene" uid="uid://03ksvlu5j6n8" path="res://Scene/SongProperties/SongProperties.tscn" id="1_yil7n"]
-[ext_resource type="PackedScene" uid="uid://bu0brnnai0f7q" path="res://Scene/TabBar/TabBar.tscn" id="2_vxygo"]
+[ext_resource type="PackedScene" uid="uid://ul08nhvr3h6f" path="res://Scene/Hud/Hud.tscn" id="1_7ttyc"]
 [ext_resource type="PackedScene" uid="uid://dqxpk46c4q0ei" path="res://Scene/SaveManager/SaveManager.tscn" id="4_wq1ko"]
 
-[node name="Main" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Main" type="Node2D"]
 
-[node name="SongProperties" parent="." instance=ExtResource("1_yil7n")]
-layout_mode = 1
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="TabBar" parent="." instance=ExtResource("2_vxygo")]
-layout_mode = 1
-anchor_right = 0.116
-offset_right = 0.367996
+[node name="Hud" parent="." instance=ExtResource("1_7ttyc")]
 
 [node name="SaveManager" parent="." instance=ExtResource("4_wq1ko")]
 
-[connection signal="dir_selected" from="TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]
+[connection signal="dir_selected" from="Hud/TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]
 
-[editable path="TabBar"]
+[editable path="Hud"]
+[editable path="Hud/TabBar"]

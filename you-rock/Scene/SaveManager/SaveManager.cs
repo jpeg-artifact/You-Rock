@@ -26,7 +26,7 @@ public partial class SaveManager : Node
 		streamWriter.WriteLine($"{globals.SongName},{globals.AuthorName},{globals.Difficulty},{globals.SongLengthInSeconds},{globals.Theme}");
 	}
 
-	private void Save()
+	public void Save()
 	{
 		ExportInfoFile();
 	}

@@ -7,13 +7,17 @@ public partial class TabBar : Control
 {
 	private Globals globals;
 	private MenuButton fileMenuButton;
-	private FileDialog SaveAsFileDialig;
+	private FileDialog saveAsFileDialig;
+	private SaveManager saveManager;
 
     public override void _Ready()
     {
         globals = GetNode<Globals>("/root/Globals");
 		fileMenuButton = GetNode<MenuButton>("HBoxContainer/FileMenuButton");
-		SaveAsFileDialig = GetNode<FileDialog>("SaveAsFileDialog");
-		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) SaveAsFileDialig.Visible = true; };
+		saveAsFileDialig = GetNode<FileDialog>("SaveAsFileDialog");
+		saveManager = GetNode<SaveManager>("/root/Main/SaveManager");
+
+		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) saveAsFileDialig.Visible = true; };
+		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 0) saveManager.Save(); };
     }
 }
