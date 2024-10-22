@@ -15,8 +15,8 @@ public partial class SaveManager : Node
 		
 	}
 
-	private void SaveAs()
+	private void Save()
 	{
-
+		
 	}
 }

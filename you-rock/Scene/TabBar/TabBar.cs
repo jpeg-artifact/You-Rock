@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Data.Common;
+using System.Runtime.CompilerServices;
 
 public partial class TabBar : Control
 {
@@ -11,7 +13,8 @@ public partial class TabBar : Control
     {
         globals = GetNode<Globals>("/root/Globals");
 		fileMenuButton = GetNode<MenuButton>("HBoxContainer/FileMenuButton");
-		fileMenuButton.GetPopup().IdPressed += (int id) => SaveAsFileDialig.Visible = true;
+		SaveAsFileDialig = GetNode<FileDialog>("FileDialog");
+		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) SaveAsFileDialig.Visible = true; };
     }
 
 	private void OnFileDialogDirSelected(string path)
