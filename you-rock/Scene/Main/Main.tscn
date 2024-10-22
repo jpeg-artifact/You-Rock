@@ -1,18 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://xk4iag2v02yn"]
+[gd_scene load_steps=6 format=3 uid="uid://xk4iag2v02yn"]
 
+[ext_resource type="PackedScene" uid="uid://b4dbg5ux4q70f" path="res://Scene/Camera/Camera.tscn" id="1_7rc6c"]
 [ext_resource type="PackedScene" uid="uid://ul08nhvr3h6f" path="res://Scene/Hud/Hud.tscn" id="1_7ttyc"]
 [ext_resource type="PackedScene" uid="uid://b08n1phd3tlmw" path="res://Scene/PlaybackManager/Playbackmanager.tscn" id="3_lqkxn"]
+[ext_resource type="Texture2D" uid="uid://cacl6apt4aqw" path="res://icon.svg" id="4_l8ram"]
 [ext_resource type="PackedScene" uid="uid://dqxpk46c4q0ei" path="res://Scene/SaveManager/SaveManager.tscn" id="4_wq1ko"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" parent="." instance=ExtResource("1_7rc6c")]
 
 [node name="Hud" parent="." instance=ExtResource("1_7ttyc")]
 
 [node name="SaveManager" parent="." instance=ExtResource("4_wq1ko")]
 
 [node name="PlaybackManager" parent="." instance=ExtResource("3_lqkxn")]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(644, 195)
+texture = ExtResource("4_l8ram")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(816, -141)
+texture = ExtResource("4_l8ram")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(-215, 120)
+texture = ExtResource("4_l8ram")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(-162, -420)
+texture = ExtResource("4_l8ram")
 
 [connection signal="FilePathChoosen" from="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath" to="PlaybackManager" method="OnSongPathFilePathChoosen"]
 [connection signal="dir_selected" from="Hud/TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]
@@ -28,4 +46,3 @@
 [editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath"]
 [editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/PreviewPath"]
 [editable path="Hud/TabBar"]
-[editable path="PlaybackManager"]

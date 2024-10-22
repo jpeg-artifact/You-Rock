@@ -14,9 +14,14 @@ public partial class PlaybackManager : Node
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("PlayPause"))
+        if (Input.IsActionJustPressed("PlayPause") && audioStreamPlayer.Playing)
 		{
-			audioStreamPlayer.Playing = !audioStreamPlayer.Playing;
+			globals.TimePosition = audioStreamPlayer.GetPlaybackPosition();
+			audioStreamPlayer.Stop();
+		}
+		else if (Input.IsActionJustPressed("PlayPause"))
+		{
+			audioStreamPlayer.Play(globals.TimePosition);
 		}
     }
 

@@ -12,4 +12,5 @@ public partial class Globals : Node
 	[Export] public string SongFilePath { get; set; }
 	[Export] public string PreviewFilePath { get; set;}
 	[Export] public string ProjectPath { get; set; } = string.Empty;
+	[Export] public float TimePosition { get; set; } = 0;
 }
