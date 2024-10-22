@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://xk4iag2v02yn"]
+[gd_scene load_steps=4 format=3 uid="uid://xk4iag2v02yn"]
 
 [ext_resource type="PackedScene" uid="uid://ul08nhvr3h6f" path="res://Scene/Hud/Hud.tscn" id="1_7ttyc"]
+[ext_resource type="PackedScene" uid="uid://b08n1phd3tlmw" path="res://Scene/PlaybackManager/Playbackmanager.tscn" id="3_lqkxn"]
 [ext_resource type="PackedScene" uid="uid://dqxpk46c4q0ei" path="res://Scene/SaveManager/SaveManager.tscn" id="4_wq1ko"]
 
 [node name="Main" type="Node2D"]
@@ -11,7 +12,20 @@
 
 [node name="SaveManager" parent="." instance=ExtResource("4_wq1ko")]
 
+[node name="PlaybackManager" parent="." instance=ExtResource("3_lqkxn")]
+
+[connection signal="FilePathChoosen" from="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath" to="PlaybackManager" method="OnSongPathFilePathChoosen"]
 [connection signal="dir_selected" from="Hud/TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]
 
 [editable path="Hud"]
+[editable path="Hud/SongProperties"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/BPMInput"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/SongLengthInput"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/Theme"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/SongNameInput"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/AuthorNameInput"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/Difficulty"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath"]
+[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/PreviewPath"]
 [editable path="Hud/TabBar"]
+[editable path="PlaybackManager"]

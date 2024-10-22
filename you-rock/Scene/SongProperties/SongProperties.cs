@@ -45,4 +45,9 @@ public partial class SongProperties : Control
 	{
 		globals.Difficulty = id;
 	}
+
+	private void OnSongPathFilePathChoosen(string path)
+	{
+		globals.SongFilePath = path;
+	}
 }
