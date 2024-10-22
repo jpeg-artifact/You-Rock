@@ -10,12 +10,12 @@ public partial class ExportManager : Node
     public override void _Ready()
     {
         globals = GetNode<Globals>("/root/Globals");
-		ExportInfoFile();
     }
 
+	// Exports info.csv file to project path location
     private void ExportInfoFile()
 	{
-		using FileStream file = File.OpenWrite("info.csv");
+		using FileStream file = File.OpenWrite($"{globals.ProjectPath}\\info.csv");
 		using StreamWriter streamWriter= new(file);
 		streamWriter.WriteLine("Song Name, Author Name,Difficulty(EASY = 0, MEDIUM = 1, HARD = 2, EXTREME = 3), Song Duration in seconds, Song Map (VULCAN = 0, DESERT = 1, STORM = 2, UNDERTALE = 3)");
 		streamWriter.WriteLine($"{globals.SongName},{globals.AuthorName},{globals.Difficulty},{globals.SongLengthInSeconds},{globals.Theme}");

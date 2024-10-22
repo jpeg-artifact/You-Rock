@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bu0brnnai0f7q"]
+[gd_scene load_steps=2 format=3 uid="uid://bu0brnnai0f7q"]
+
+[ext_resource type="Script" path="res://Scene/TabBar/TabBar.cs" id="1_p5tik"]
 
 [node name="TabBar" type="Control"]
 layout_mode = 3
@@ -8,6 +10,7 @@ offset_right = 99.44
 offset_bottom = 0.079998
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p5tik")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -25,3 +28,10 @@ item_count = 2
 popup/item_0/text = "Save"
 popup/item_1/text = "Save As..."
 popup/item_1/id = 1
+
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 1
+size = Vector2i(700, 500)
+access = 2
+
+[connection signal="dir_selected" from="FileDialog" to="." method="OnFileDialogDirSelected"]

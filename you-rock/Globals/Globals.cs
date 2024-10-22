@@ -11,4 +11,5 @@ public partial class Globals : Node
 	[Export] public string AuthorName { get; set; }
 	[Export] public string SongFilePath { get; set; }
 	[Export] public string PreviewFilePath { get; set;}
+	[Export] public string ProjectPath { get; set; }
 }
