@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xk4iag2v02yn"]
+[gd_scene load_steps=4 format=3 uid="uid://xk4iag2v02yn"]
 
 [ext_resource type="PackedScene" uid="uid://03ksvlu5j6n8" path="res://Scene/SongProperties/SongProperties.tscn" id="1_yil7n"]
 [ext_resource type="PackedScene" uid="uid://bu0brnnai0f7q" path="res://Scene/TabBar/TabBar.tscn" id="2_vxygo"]
+[ext_resource type="PackedScene" uid="uid://dbendp2632bre" path="res://Scene/ExportManager/ExportManager.tscn" id="3_r0og6"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -18,3 +19,5 @@ layout_mode = 1
 layout_mode = 1
 anchor_right = 0.116
 offset_right = 0.367996
+
+[node name="ExportManager" parent="." instance=ExtResource("3_r0og6")]
