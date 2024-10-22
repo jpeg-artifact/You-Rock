@@ -1,7 +1,5 @@
 using Godot;
 using System;
-using System.Data.Common;
-using System.Runtime.CompilerServices;
 
 public partial class TabBar : Control
 {
@@ -17,7 +15,23 @@ public partial class TabBar : Control
 		saveAsFileDialig = GetNode<FileDialog>("SaveAsFileDialog");
 		saveManager = GetNode<SaveManager>("/root/Main/SaveManager");
 
-		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) saveAsFileDialig.Visible = true; };
-		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 0) saveManager.Save(); };
+		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) SaveAs(); };
+		fileMenuButton.GetPopup().IdPressed += (long id) => { 
+			if (id == 0 && globals.ProjectPath.Length > 0)
+				saveManager.Save(); 
+			else
+				SaveAs();
+			};
     }
+
+	private void Save()
+	{
+		GD.Print("Save!");
+		//saveManager.Save(); 
+	}
+
+	private void SaveAs()
+	{
+		saveAsFileDialig.Visible = true;
+	}
 }
