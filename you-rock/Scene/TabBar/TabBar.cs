@@ -13,12 +13,7 @@ public partial class TabBar : Control
     {
         globals = GetNode<Globals>("/root/Globals");
 		fileMenuButton = GetNode<MenuButton>("HBoxContainer/FileMenuButton");
-		SaveAsFileDialig = GetNode<FileDialog>("FileDialog");
+		SaveAsFileDialig = GetNode<FileDialog>("SaveAsFileDialog");
 		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) SaveAsFileDialig.Visible = true; };
     }
-
-	private void OnFileDialogDirSelected(string path)
-	{
-		globals.ProjectPath = path;
-	}
 }

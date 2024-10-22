@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dqxpk46c4q0ei"]
 
-[ext_resource type="Script" path="res://SaveManager.cs" id="1_snvja"]
+[ext_resource type="Script" path="res://Scene/SaveManager/SaveManager.cs" id="1_snvja"]
 
 [node name="SaveManager" type="Node"]
 script = ExtResource("1_snvja")
