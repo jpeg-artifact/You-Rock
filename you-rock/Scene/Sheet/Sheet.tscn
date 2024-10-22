@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbb4dg0gbclhh"]
+
+[sub_resource type="Gradient" id="Gradient_ngfrb"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqb07"]
+gradient = SubResource("Gradient_ngfrb")
+width = 596
+height = 842
+
+[node name="Sheet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(298, 421)
+texture = SubResource("GradientTexture2D_vqb07")
