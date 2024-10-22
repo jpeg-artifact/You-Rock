@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://03ksvlu5j6n8"]
+[gd_scene load_steps=6 format=3 uid="uid://03ksvlu5j6n8"]
 
-[ext_resource type="PackedScene" uid="uid://cs7iqh5mta7b5" path="res://Scene/CharacterInput/CharacterInput.tscn" id="1_v2mgh"]
+[ext_resource type="Script" path="res://Scene/SongProperties/SongProperties.cs" id="1_64qy1"]
+[ext_resource type="PackedScene" uid="uid://cs7iqh5mta7b5" path="res://Scene/StringInput/StringInput.tscn" id="1_v2mgh"]
 [ext_resource type="Theme" uid="uid://77804voloaei" path="res://Assets/Theme/Theme.tres" id="1_vuxoa"]
 [ext_resource type="PackedScene" uid="uid://bwh2styys30xq" path="res://Scene/DropMenu/DropMenu.tscn" id="2_tu2ov"]
 [ext_resource type="PackedScene" uid="uid://bx2kajbjp8m74" path="res://Scene/FilePath/FilePath.tscn" id="3_u7hwd"]
@@ -12,6 +13,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 285.0
 grow_vertical = 2
+script = ExtResource("1_64qy1")
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 layout_mode = 1
@@ -119,6 +121,8 @@ layout_mode = 2
 
 [node name="Label" parent="ScrollContainer/VBoxContainer/PreviewPath" index="0"]
 text = "Preview Path"
+
+[connection signal="OptionChoosen" from="ScrollContainer/VBoxContainer/Theme" to="." method="OnThemeOptionChoosen"]
 
 [editable path="ScrollContainer/VBoxContainer/BPMInput"]
 [editable path="ScrollContainer/VBoxContainer/SongLengthInput"]

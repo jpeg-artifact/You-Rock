@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CharacterInput : Control
+public partial class StringInput : Control
 {
 	[Signal] public delegate void StringEnteredEventHandler(string newText);
 

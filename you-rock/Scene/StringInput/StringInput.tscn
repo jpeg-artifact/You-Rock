@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs7iqh5mta7b5"]
 
-[ext_resource type="Theme" uid="uid://77804voloaei" path="res://Assets/Theme/Theme.tres" id="1_2ts0i"]
-[ext_resource type="Script" path="res://Scene/CharacterInput/CharacterInput.cs" id="1_qgs0d"]
+[ext_resource type="Script" path="res://Scene/StringInput/StringInput.cs" id="1_rce1d"]
+[ext_resource type="Theme" uid="uid://77804voloaei" path="res://Assets/Theme/Theme.tres" id="2_ks4as"]
 
-[node name="CharacterInput" type="Control"]
+[node name="StringInput" type="Control"]
 custom_minimum_size = Vector2(0, 57)
 layout_mode = 3
 anchor_top = -0.042
@@ -14,7 +14,7 @@ offset_right = 3.51199
 offset_bottom = 2.136
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qgs0d")
+script = ExtResource("1_rce1d")
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 1
@@ -25,7 +25,7 @@ anchor_bottom = 1.0
 offset_top = 0.00799751
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_2ts0i")
+theme = ExtResource("2_ks4as")
 placeholder_text = "Input"
 clear_button_enabled = true
 draw_control_chars = true
