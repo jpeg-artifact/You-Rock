@@ -22,5 +22,6 @@ public partial class FilePath : Control
 	public void OnFileDialogFileSelected(string path)
 	{
 		lineEdit.Text = path;
+		EmitSignal(SignalName.FilePathChoosen, path);
 	}
 }

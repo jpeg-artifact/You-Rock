@@ -14,6 +14,5 @@ public partial class DropMenu : Control
     private void OnOptionButtonItemSelected(int id)
 	{
 		EmitSignal(SignalName.OptionChoosen, id, optionButton.GetItemText(id));
-		GD.Print(id, optionButton.GetItemText(id));
 	}
 }
