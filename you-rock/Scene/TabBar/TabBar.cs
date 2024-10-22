@@ -16,9 +16,10 @@ public partial class TabBar : Control
 		saveManager = GetNode<SaveManager>("/root/Main/SaveManager");
 
 		fileMenuButton.GetPopup().IdPressed += (long id) => { if (id == 1) SaveAs(); };
+		GD.Print("Path: " + globals.ProjectPath);
 		fileMenuButton.GetPopup().IdPressed += (long id) => { 
-			if (id == 0 && globals.ProjectPath.Length > 0)
-				saveManager.Save(); 
+			if (id == 0 && globals.ProjectPath != string.Empty)
+				Save();
 			else
 				SaveAs();
 			};
@@ -26,8 +27,7 @@ public partial class TabBar : Control
 
 	private void Save()
 	{
-		GD.Print("Save!");
-		//saveManager.Save(); 
+		saveManager.Save();
 	}
 
 	private void SaveAs()

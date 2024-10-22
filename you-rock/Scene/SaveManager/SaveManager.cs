@@ -22,8 +22,12 @@ public partial class SaveManager : Node
 	{
 		using FileStream file = File.OpenWrite($"{globals.ProjectPath}\\info.csv");
 		using StreamWriter streamWriter= new(file);
-		streamWriter.WriteLine("Song Name, Author Name,Difficulty(EASY = 0, MEDIUM = 1, HARD = 2, EXTREME = 3), Song Duration in seconds, Song Map (VULCAN = 0, DESERT = 1, STORM = 2, UNDERTALE = 3)");
-		streamWriter.WriteLine($"{globals.SongName},{globals.AuthorName},{globals.Difficulty},{globals.SongLengthInSeconds},{globals.Theme}");
+		string header = "Song Name, Author Name,Difficulty(EASY = 0, MEDIUM = 1, HARD = 2, EXTREME = 3), Song Duration in seconds, Song Map (VULCAN = 0, DESERT = 1, STORM = 2, UNDERTALE = 3)";
+		streamWriter.WriteLine(header);
+		GD.Print(header);
+		string info = $"{globals.SongName},{globals.AuthorName},{globals.Difficulty},{globals.SongLengthInSeconds},{globals.Theme}";
+		streamWriter.WriteLine(info);
+		GD.Print(info);
 	}
 
 	public void Save()
