@@ -19,6 +19,7 @@
 [node name="Sheet" parent="." instance=ExtResource("5_1m3li")]
 position = Vector2(-286, -128)
 
+[connection signal="FilePathChoosen" from="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath" to="PlaybackManager" method="OnSongPathFilePathChoosen"]
 [connection signal="dir_selected" from="Hud/TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]
 [connection signal="dir_selected" from="Hud/TabBar/OpenFileDialog" to="SaveManager" method="OnOpenFileDialogDirSelected"]
 

@@ -27,6 +27,7 @@ public partial class PlaybackManager : Node
 
     private void OnSongPathFilePathChoosen(string path)
 	{
-		audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile(globals.SongFilePath);
+
+		audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile(path);
 	}
 }
