@@ -20,6 +20,7 @@
 position = Vector2(-286, -128)
 
 [connection signal="dir_selected" from="Hud/TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]
+[connection signal="dir_selected" from="Hud/TabBar/OpenFileDialog" to="SaveManager" method="OnOpenFileDialogDirSelected"]
 
 [editable path="Hud"]
 [editable path="Hud/SongProperties"]
