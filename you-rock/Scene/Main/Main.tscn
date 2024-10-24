@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://xk4iag2v02yn"]
+[gd_scene load_steps=5 format=3 uid="uid://xk4iag2v02yn"]
 
 [ext_resource type="PackedScene" uid="uid://b4dbg5ux4q70f" path="res://Scene/Camera/Camera.tscn" id="1_7rc6c"]
 [ext_resource type="PackedScene" uid="uid://ul08nhvr3h6f" path="res://Scene/Hud/Hud.tscn" id="1_7ttyc"]
 [ext_resource type="PackedScene" uid="uid://b08n1phd3tlmw" path="res://Scene/PlaybackManager/Playbackmanager.tscn" id="3_lqkxn"]
 [ext_resource type="PackedScene" uid="uid://dqxpk46c4q0ei" path="res://Scene/SaveManager/SaveManager.tscn" id="4_wq1ko"]
-[ext_resource type="PackedScene" uid="uid://cbb4dg0gbclhh" path="res://Scene/Sheet/Sheet.tscn" id="5_1m3li"]
 
 [node name="Main" type="Node2D"]
 
@@ -15,9 +14,6 @@
 [node name="SaveManager" parent="." instance=ExtResource("4_wq1ko")]
 
 [node name="PlaybackManager" parent="." instance=ExtResource("3_lqkxn")]
-
-[node name="Sheet" parent="." instance=ExtResource("5_1m3li")]
-position = Vector2(-286, -128)
 
 [connection signal="FilePathChoosen" from="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath" to="PlaybackManager" method="OnSongPathFilePathChoosen"]
 [connection signal="dir_selected" from="Hud/TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]

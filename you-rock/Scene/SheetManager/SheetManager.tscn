@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cup8iyrt7orgv"]
+
+[ext_resource type="Script" path="res://Scene/SheetManager/SheetManager.cs" id="1_jcpqa"]
+
+[node name="SheetManager" type="Node"]
+script = ExtResource("1_jcpqa")
