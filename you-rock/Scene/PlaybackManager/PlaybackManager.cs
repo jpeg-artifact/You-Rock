@@ -3,31 +3,27 @@ using System;
 
 public partial class PlaybackManager : Node
 {
-	private Globals globals;
-	private AudioStreamPlayer audioStreamPlayer;
+	private Globals _globals;
+	private AudioStreamPlayer _audioStreamPlayer;
 
 	public override void _Ready()
 	{
-		globals = GetNode<Globals>("/root/Globals");
-		audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		_globals = GetNode<Globals>("/root/Globals");
+		_audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+
+		_globals.SongFilePathChanged += (string songFilePath) => _audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile(songFilePath);
 	}
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed("PlayPause") && audioStreamPlayer.Playing)
+        if (Input.IsActionJustPressed("PlayPause") && _audioStreamPlayer.Playing)
 		{
-			globals.TimePosition = audioStreamPlayer.GetPlaybackPosition();
-			audioStreamPlayer.Stop();
+			_globals.TimePosition = _audioStreamPlayer.GetPlaybackPosition();
+			_audioStreamPlayer.Stop();
 		}
 		else if (Input.IsActionJustPressed("PlayPause"))
 		{
-			audioStreamPlayer.Play(globals.TimePosition);
+			_audioStreamPlayer.Play(_globals.TimePosition);
 		}
     }
-
-    private void OnSongPathFilePathChoosen(string path)
-	{
-
-		audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile(path);
-	}
 }

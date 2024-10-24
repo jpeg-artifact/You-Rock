@@ -10,7 +10,7 @@ public partial class FilePath : Control
     public override void _Ready()
     {
         fileDialog = GetNode<FileDialog>("FileDialog");
-		lineEdit = GetNode<LineEdit>("PathLineEdit");
+		lineEdit = GetNode<LineEdit>("LineEdit");
     }
 
     public void OnButtonPressed()

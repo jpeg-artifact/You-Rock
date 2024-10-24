@@ -41,7 +41,7 @@ public partial class Timeline : Area2D
         {
             float sheetOffset = TimePerTimeline * sheet.Index * 4 + TimePerTimeline * (Index + 1) - TimePerTimeline;
             float timelineOffset = TimePerTimeline * ((GetGlobalMousePosition().X - sheet.Position.X - Position.X) / PixelWidth);
-            globals.TimePosition = sheetOffset + timelineOffset;
+            globals.TimePosition = Mathf.Max(sheetOffset + timelineOffset, 0);
             GD.Print(globals.TimePosition);
         }
     }
