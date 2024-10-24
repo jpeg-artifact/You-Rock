@@ -113,4 +113,12 @@ public partial class Globals : Node
 			_timePosition = value;
 		}
 	}
+	public int TotalBeats { 
+		get {
+			return (int)Math.Ceiling((float)BeatsPerMinute * ((float)SongLengthInSeconds / 60));
+		}
+	}
+
+	public const int BeatsPerTimeline = 8;
+	public const int BeatsPerSheet = BeatsPerTimeline * 4;
 }

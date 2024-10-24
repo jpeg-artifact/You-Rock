@@ -23,18 +23,8 @@
 position = Vector2(532, 212)
 texture = ExtResource("6_sosij")
 
-[connection signal="FilePathChoosen" from="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath" to="PlaybackManager" method="OnSongPathFilePathChoosen"]
 [connection signal="dir_selected" from="Hud/TabBar/SaveAsFileDialog" to="SaveManager" method="OnSaveAsFileDialogDirSelected"]
 [connection signal="dir_selected" from="Hud/TabBar/OpenFileDialog" to="SaveManager" method="OnOpenFileDialogDirSelected"]
 
 [editable path="Hud"]
-[editable path="Hud/SongProperties"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/BPMInput"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/SongLengthInput"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/Theme"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/SongNameInput"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/AuthorNameInput"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/Difficulty"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/SongPath"]
-[editable path="Hud/SongProperties/ScrollContainer/VBoxContainer/PreviewPath"]
 [editable path="Hud/TabBar"]
