@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ul08nhvr3h6f"]
 
-[ext_resource type="PackedScene" uid="uid://03ksvlu5j6n8" path="res://Scene/SongProperties/SongProperties.tscn" id="1_cl023"]
-[ext_resource type="PackedScene" uid="uid://bu0brnnai0f7q" path="res://Scene/TabBar/TabBar.tscn" id="2_32han"]
+[ext_resource type="PackedScene" uid="uid://03ksvlu5j6n8" path="res://Scenes/SongProperties/SongProperties.tscn" id="1_cl023"]
+[ext_resource type="PackedScene" uid="uid://bu0brnnai0f7q" path="res://Scenes/TabBar/TabBar.tscn" id="2_32han"]
 
 [node name="Hud" type="CanvasLayer"]
 

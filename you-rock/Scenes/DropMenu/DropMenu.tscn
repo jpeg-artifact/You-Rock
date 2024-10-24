@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwh2styys30xq"]
 
-[ext_resource type="Script" path="res://Scene/DropMenu/DropMenu.cs" id="1_bl63a"]
+[ext_resource type="Script" path="res://Scenes/DropMenu/DropMenu.cs" id="1_bl63a"]
 [ext_resource type="Theme" uid="uid://77804voloaei" path="res://Assets/Theme/Theme.tres" id="1_wbnqq"]
 
 [node name="DropMenu" type="Control"]

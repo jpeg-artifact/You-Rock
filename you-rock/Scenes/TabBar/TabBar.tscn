@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bu0brnnai0f7q"]
 
-[ext_resource type="Script" path="res://Scene/TabBar/TabBar.cs" id="1_p5tik"]
+[ext_resource type="Script" path="res://Scenes/TabBar/TabBar.cs" id="1_p5tik"]
 
 [node name="TabBar" type="Control"]
 layout_mode = 3

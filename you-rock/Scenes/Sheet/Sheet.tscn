@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbb4dg0gbclhh"]
 
-[ext_resource type="PackedScene" uid="uid://dbj0xhs4ljsgj" path="res://Scene/Timeline/Timeline.tscn" id="1_feq2d"]
-[ext_resource type="Script" path="res://Scene/Sheet/Sheet.cs" id="1_v58rf"]
+[ext_resource type="PackedScene" uid="uid://dbj0xhs4ljsgj" path="res://Scenes/Timeline/Timeline.tscn" id="1_feq2d"]
+[ext_resource type="Script" path="res://Scenes/Sheet/Sheet.cs" id="1_v58rf"]
 
 [sub_resource type="Gradient" id="Gradient_ngfrb"]
 offsets = PackedFloat32Array(1)

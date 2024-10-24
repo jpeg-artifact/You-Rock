@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs7iqh5mta7b5"]
 
-[ext_resource type="Script" path="res://Scene/StringInput/StringInput.cs" id="1_rce1d"]
+[ext_resource type="Script" path="res://Scenes/StringInput/StringInput.cs" id="1_rce1d"]
 [ext_resource type="Theme" uid="uid://77804voloaei" path="res://Assets/Theme/Theme.tres" id="2_ks4as"]
 
 [node name="StringInput" type="Control"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx2kajbjp8m74"]
 
 [ext_resource type="Texture2D" uid="uid://b1tl47xsvj6b4" path="res://Assets/Symbols/material-symbols--folder.png" id="1_1koid"]
-[ext_resource type="Script" path="res://Scene/FilePath/FilePath.cs" id="1_yp2kj"]
+[ext_resource type="Script" path="res://Scenes/FilePath/FilePath.cs" id="1_yp2kj"]
 
 [node name="FilePath" type="Control"]
 custom_minimum_size = Vector2(0, 57)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbj0xhs4ljsgj"]
 
-[ext_resource type="Script" path="res://Scene/Timeline/Timeline.cs" id="1_sldvt"]
+[ext_resource type="Script" path="res://Scenes/Timeline/Timeline.cs" id="1_sldvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pvkd"]
 size = Vector2(557, 24)
