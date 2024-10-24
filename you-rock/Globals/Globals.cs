@@ -48,8 +48,8 @@ public partial class Globals : Node
 		}
 	}
 	[Signal] public delegate void SongNameChangedEventHandler(string songName);
-	private int _songName;
-	[Export] public int SongName { 
+	private string _songName = string.Empty;
+	[Export] public string SongName { 
 		get {
 			return _songName;
 		} 
@@ -59,8 +59,8 @@ public partial class Globals : Node
 		}
 	}
 	[Signal] public delegate void AuthorNameChangedEventHandler(string authorName);
-	private int _authorName;
-	[Export] public int AuthorName { 
+	private string _authorName = string.Empty;
+	[Export] public string AuthorName { 
 		get {
 			return _authorName;
 		} 
@@ -70,8 +70,8 @@ public partial class Globals : Node
 		}
 	}
 	[Signal] public delegate void SongFilePathChangedEventHandler(string songFilePath);
-	private int _songFilePath;
-	[Export] public int SongFilePath { 
+	private string _songFilePath = string.Empty;
+	[Export] public string SongFilePath { 
 		get {
 			return _songFilePath;
 		} 
@@ -81,8 +81,8 @@ public partial class Globals : Node
 		}
 	}
 	[Signal] public delegate void PreviewFilePathChangedEventHandler(string previewFilePath);
-	private int _previewFilePath;
-	[Export] public int PreviewFilePath { 
+	private string _previewFilePath = string.Empty;
+	[Export] public string PreviewFilePath { 
 		get {
 			return _previewFilePath;
 		} 
@@ -92,8 +92,8 @@ public partial class Globals : Node
 		}
 	}
 	[Signal] public delegate void ProjectPathChangedEventHandler(string projectPath);
-	private int _projectPath;
-	[Export] public int ProjectPath { 
+	private string _projectPath = string.Empty;
+	[Export] public string ProjectPath { 
 		get {
 			return _projectPath;
 		} 
@@ -103,7 +103,7 @@ public partial class Globals : Node
 		}
 	}
 	[Signal] public delegate void TimePositionChangedEventHandler(float timePosition);
-	private int _timePosition;
+	private int _timePosition = 0;
 	[Export] public int TimePosition { 
 		get {
 			return _timePosition;
