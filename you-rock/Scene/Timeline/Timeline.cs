@@ -39,7 +39,9 @@ public partial class Timeline : Area2D
     {
         if (IsFocus && Input.IsActionPressed("Click"))
         {
-            globals.TimePosition = TimePerTimeline * sheet.Index * 4 + TimePerTimeline * (Index + 1) - TimePerTimeline + TimePerTimeline * ((GetGlobalMousePosition().X - Position.X + PixelWidth / 2 + 10) / PixelWidth);
+            float sheetOffset = TimePerTimeline * sheet.Index * 4 + TimePerTimeline * (Index + 1) - TimePerTimeline;
+            float timelineOffset = TimePerTimeline * ((GetGlobalMousePosition().X - sheet.Position.X - Position.X) / PixelWidth);
+            globals.TimePosition = sheetOffset + timelineOffset;
             GD.Print(globals.TimePosition);
         }
     }

@@ -103,8 +103,8 @@ public partial class Globals : Node
 		}
 	}
 	[Signal] public delegate void TimePositionChangedEventHandler(float timePosition);
-	private int _timePosition = 0;
-	[Export] public int TimePosition { 
+	private float _timePosition = 0;
+	[Export] public float TimePosition { 
 		get {
 			return _timePosition;
 		} 
