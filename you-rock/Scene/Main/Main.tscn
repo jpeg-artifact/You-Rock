@@ -10,7 +10,6 @@
 [node name="Main" type="Node2D"]
 
 [node name="Sheet" parent="." instance=ExtResource("5_1m3li")]
-position = Vector2(387, 162)
 
 [node name="Camera" parent="." instance=ExtResource("1_7rc6c")]
 

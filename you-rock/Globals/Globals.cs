@@ -8,11 +8,11 @@ public partial class Globals : Node
 	[Export] public int BeatsPerMinute { 
 		get { 
 			return _beatsPerMinute; 
-		} 
+		}
 		set { 
 			EmitSignal(SignalName.BeatsPerMinuteChanged, value); 
 			_beatsPerMinute = value;
-		} 
+		}
 	}
 	[Signal] public delegate void SongLengthInSecondsChangedEventHandler(int songLengthInSeconds);
 	private int _songLengthInSeconds;
