@@ -8,7 +8,13 @@ public partial class Timeline : Area2D
 
     private Sheet sheet;
     private Globals globals;
-    private float pixelWidth;
+    private float PixelWidth { 
+        get { return GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().Size.X;}
+    }
+    private float TimePerTimeline { 
+        get { if (globals.BeatsPerMinute > 0) return globals.SongLengthInSeconds * (16f / globals.BeatsPerMinute); 
+            else return 0; } 
+    }
 
     public override void _Ready()
     {
@@ -17,27 +23,24 @@ public partial class Timeline : Area2D
 
         sheet = GetParent<Sheet>();
         globals = GetNode<Globals>("/root/Globals");
-        pixelWidth = GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().Size.X;
-        GD.Print(pixelWidth);
     }
 
     private void OnMouseEntered()
     {
         IsFocus = true;
-        GD.Print(IsFocus);
     }
 
     private void OnMouseExited()
     {
         IsFocus = false;
-        GD.Print(IsFocus);
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
         if (IsFocus && Input.IsActionPressed("Click"))
         {
-            globals.TimePosition = (GetGlobalMousePosition().X - Position.X + pixelWidth / 2 + 10) / pixelWidth;
+            globals.TimePosition = TimePerTimeline * sheet.Index * 4 + TimePerTimeline * (Index + 1) - TimePerTimeline + TimePerTimeline * ((GetGlobalMousePosition().X - Position.X + PixelWidth / 2 + 10) / PixelWidth);
+            GD.Print(globals.TimePosition);
         }
     }
 }
