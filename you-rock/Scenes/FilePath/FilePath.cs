@@ -15,7 +15,6 @@ public partial class FilePath : Control
 
     public void OnButtonPressed()
 	{
-		GD.Print(fileDialog);
 		fileDialog.Visible = true;
 	}
 

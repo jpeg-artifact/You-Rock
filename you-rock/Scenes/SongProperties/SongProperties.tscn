@@ -128,6 +128,8 @@ text = "Preview Path"
 [connection signal="StringEdited" from="ScrollContainer/VBoxContainer/SongNameInput" to="." method="OnSongNameInputStringEdited"]
 [connection signal="StringEdited" from="ScrollContainer/VBoxContainer/AuthorNameInput" to="." method="OnAuthorNameInputStringEdited"]
 [connection signal="OptionChoosen" from="ScrollContainer/VBoxContainer/Difficulty" to="." method="OnDifficultyOptionChoosen"]
+[connection signal="FilePathChoosen" from="ScrollContainer/VBoxContainer/SongPath" to="." method="OnSongPathFilePathChoosen"]
+[connection signal="FilePathChoosen" from="ScrollContainer/VBoxContainer/PreviewPath" to="." method="OnPreviewPathFilePathChoosen"]
 
 [editable path="ScrollContainer/VBoxContainer/BPMInput"]
 [editable path="ScrollContainer/VBoxContainer/SongLengthInput"]
