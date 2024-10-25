@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Scenes/SheetManager/SheetManager.cs" id="1_jcpqa"]
 
-[node name="SheetManager" type="Node"]
+[node name="SheetManager" type="Node2D"]
 script = ExtResource("1_jcpqa")

@@ -14,15 +14,19 @@ public partial class TimeCursor : Node2D
 		_globals.TimePositionChanged += PositionTimeCursor;
 	}
 
-	private void GetTimelineFromTimePosition(float timePosition)
+	private Timeline GetTimelineFromTimePosition(float timePosition)
 	{
-		float sheetIndex = Mathf.Ceil(timePosition / _globals.TimePerTimeline / 4) - 1;
-		float timelineIndex = (Mathf.Ceil(timePosition / _globals.TimePerTimeline) - 1) % 4;
-		GD.Print($"Sheet: {sheetIndex}, Timeline: {timelineIndex}");
+		int sheetIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline / 4) - 1;
+		int timelineIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline) % 4 + 1;
+		Timeline timeline = _sheetManager.GetChildren()[sheetIndex].GetChildren()[timelineIndex] as Timeline;
+		GD.Print(timeline);
+		return timeline;
 	}
 
 	private void PositionTimeCursor(float timePosition)
 	{
-		GetTimelineFromTimePosition(timePosition);
+		Timeline timeline = GetTimelineFromTimePosition(timePosition);
+
+		Position = timeline.Position + new Vector2(timeline.TimelineOffset, 0);
 	}
 }

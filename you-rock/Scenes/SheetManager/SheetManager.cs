@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class SheetManager : Node
+public partial class SheetManager : Node2D
 {
 	private Globals _globals;
 
