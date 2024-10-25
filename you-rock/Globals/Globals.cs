@@ -118,6 +118,10 @@ public partial class Globals : Node
 			return (int)Math.Ceiling((float)BeatsPerMinute * ((float)SongLengthInSeconds / 60));
 		}
 	}
+	public float TimePerTimeline { 
+        get { if (BeatsPerMinute > 0) return SongLengthInSeconds * ((float)BeatsPerTimeline / TotalBeats); 
+            else return 0; } 
+    }
 
 	public const int BeatsPerTimeline = 8;
 	public const int BeatsPerSheet = BeatsPerTimeline * 4;
