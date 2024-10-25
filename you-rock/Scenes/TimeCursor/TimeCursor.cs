@@ -17,8 +17,9 @@ public partial class TimeCursor : Node2D
 	private Timeline GetTimelineFromTimePosition(float timePosition)
 	{
 		int sheetIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline / 4) - 1;
-		int timelineIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline) % 4 + 1;
-		Timeline timeline = _sheetManager.GetChildren()[sheetIndex].GetChildren()[timelineIndex] as Timeline;
+		int timelineIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline) % 4;
+		GD.Print($"Sheet: {sheetIndex}, Timeline: {timelineIndex}");
+		Timeline timeline = _sheetManager.GetChildren()[sheetIndex].GetNode<Node2D>("Timelines").GetChildren()[timelineIndex] as Timeline;
 		GD.Print(timeline);
 		return timeline;
 	}
@@ -27,6 +28,6 @@ public partial class TimeCursor : Node2D
 	{
 		Timeline timeline = GetTimelineFromTimePosition(timePosition);
 
-		Position = timeline.Position + new Vector2(timeline.TimelineOffset, 0);
+		Position = timeline.GlobalPosition + new Vector2(timeline.TimelineOffset, 0);
 	}
 }

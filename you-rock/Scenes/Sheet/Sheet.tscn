@@ -19,17 +19,19 @@ script = ExtResource("1_v58rf")
 position = Vector2(298, 421)
 texture = SubResource("GradientTexture2D_vqb07")
 
-[node name="Timeline1" parent="." instance=ExtResource("1_feq2d")]
+[node name="Timelines" type="Node2D" parent="."]
+
+[node name="Timeline1" parent="Timelines" instance=ExtResource("1_feq2d")]
 position = Vector2(19, 35)
 
-[node name="Timeline2" parent="." instance=ExtResource("1_feq2d")]
+[node name="Timeline2" parent="Timelines" instance=ExtResource("1_feq2d")]
 position = Vector2(19, 235)
 Index = 1
 
-[node name="Timeline3" parent="." instance=ExtResource("1_feq2d")]
+[node name="Timeline3" parent="Timelines" instance=ExtResource("1_feq2d")]
 position = Vector2(19, 435)
 Index = 2
 
-[node name="Timeline4" parent="." instance=ExtResource("1_feq2d")]
+[node name="Timeline4" parent="Timelines" instance=ExtResource("1_feq2d")]
 position = Vector2(19, 635)
 Index = 3
