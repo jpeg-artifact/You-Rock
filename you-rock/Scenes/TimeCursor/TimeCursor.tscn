@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://jvui8ty2kkvc"]
+
+[sub_resource type="Gradient" id="Gradient_5cr6y"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_amcc5"]
+gradient = SubResource("Gradient_5cr6y")
+width = 2
+height = 200
+
+[node name="TimeCursor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 100)
+texture = SubResource("GradientTexture2D_amcc5")
