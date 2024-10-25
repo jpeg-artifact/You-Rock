@@ -8,7 +8,7 @@ public partial class Timeline : Area2D
 
     private Sheet _sheet;
     private Globals _globals;
-    private float PixelWidth { 
+    public float PixelWidth { 
         get { return GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().Size.X;}
     }
 

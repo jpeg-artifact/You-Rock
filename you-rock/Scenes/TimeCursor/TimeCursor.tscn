@@ -8,7 +8,7 @@ colors = PackedColorArray(1, 0, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_amcc5"]
 gradient = SubResource("Gradient_5cr6y")
-width = 2
+width = 5
 height = 200
 
 [node name="TimeCursor" type="Node2D"]

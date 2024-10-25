@@ -14,7 +14,7 @@ public partial class PlaybackManager : Node
 		_globals.SongFilePathChanged += (string songFilePath) => _audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile(songFilePath);
 	}
 
-    public override void _Process(double delta)
+    public override void _UnhandledInput(InputEvent @event)
     {
         if (Input.IsActionJustPressed("PlayPause") && _audioStreamPlayer.Playing)
 		{
@@ -24,6 +24,14 @@ public partial class PlaybackManager : Node
 		else if (Input.IsActionJustPressed("PlayPause"))
 		{
 			_audioStreamPlayer.Play(_globals.TimePosition);
+		}
+    }
+
+    public override void _Process(double delta)
+    {
+        if (_audioStreamPlayer.Playing)
+		{
+			_globals.TimePosition = _audioStreamPlayer.GetPlaybackPosition();
 		}
     }
 }

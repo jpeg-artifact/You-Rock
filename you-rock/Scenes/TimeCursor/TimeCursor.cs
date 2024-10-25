@@ -5,10 +5,12 @@ public partial class TimeCursor : Node2D
 {
 	private Globals _globals;
 	private SheetManager _sheetManager;
+	private PlaybackManager _playbackManager;
 
 	public override void _Ready()
 	{
 		_sheetManager = GetNode<SheetManager>("/root/Main/SheetManager");
+		_playbackManager = GetNode<PlaybackManager>("/root/Main/PlaybackManager");
 		_globals = GetNode<Globals>("/root/Globals");
 
 		_globals.TimePositionChanged += PositionTimeCursor;
@@ -37,6 +39,6 @@ public partial class TimeCursor : Node2D
 		Timeline timeline = GetTimelineFromTimePosition(timePosition);
 		Sheet sheet = GetSheetFromTimePosition(timePosition);
 
-		Position = timeline.GlobalPosition + new Vector2(GetGlobalMousePosition().X - sheet.Position.X - timeline.Position.X, 0);
+		Position = timeline.GlobalPosition + new Vector2(timeline.PixelWidth * ((_globals.TimePosition - _globals.TimePerTimeline * 4 * sheet.Index - _globals.TimePerTimeline * timeline.Index) / _globals.TimePerTimeline), 0);
 	}
 }
