@@ -111,14 +111,14 @@ public partial class Globals : Node
 		set {
 			EmitSignal(SignalName.TimePositionChanged, value); 
 			_timePosition = value;
-			int newBeatPosition = (int)((float)TotalBeats * (TimePosition / (float)SongLengthInSeconds));
+			float newBeatPosition = Mathf.Round((float)TotalBeats * (TimePosition / (float)SongLengthInSeconds) * BeatsPerTimeline) / BeatsPerTimeline;
 			if (newBeatPosition != BeatPosition)
 				BeatPosition = newBeatPosition;
 		}
 	}
-	[Signal] public delegate void BeatPositionChangedEventHandler(int BeatPosition);
-	private int _beatPosition = 0;
-	[Export] public int BeatPosition { 
+	[Signal] public delegate void BeatPositionChangedEventHandler(float BeatPosition);
+	private float _beatPosition = 0;
+	[Export] public float BeatPosition { 
 		get {
 			return _beatPosition;
 		} 
