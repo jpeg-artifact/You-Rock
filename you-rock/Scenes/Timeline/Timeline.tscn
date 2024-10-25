@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbj0xhs4ljsgj"]
+[gd_scene load_steps=22 format=3 uid="uid://dbj0xhs4ljsgj"]
 
 [ext_resource type="Script" path="res://Scenes/Timeline/Timeline.cs" id="1_sldvt"]
 
@@ -14,9 +14,80 @@ gradient = SubResource("Gradient_7v4c4")
 width = 555
 height = 24
 
+[sub_resource type="Gradient" id="Gradient_ekkkn"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 0.498039, 0, 1, 0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s0eas"]
+gradient = SubResource("Gradient_ekkkn")
+width = 555
+height = 4
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_7vali"]
+interpolation_mode = 1
+colors = PackedColorArray(0.172549, 0.352941, 1, 1, 0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rqgba"]
+gradient = SubResource("Gradient_7vali")
+width = 555
+height = 4
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_1yoi7"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 0, 1, 0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mcg4g"]
+gradient = SubResource("Gradient_1yoi7")
+width = 555
+height = 4
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_bhmlk"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 0, 0, 1, 0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v2vj7"]
+gradient = SubResource("Gradient_bhmlk")
+width = 555
+height = 4
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_7fj0r"]
+interpolation_mode = 1
+colors = PackedColorArray(0, 1, 0, 1, 0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_er15r"]
+gradient = SubResource("Gradient_7fj0r")
+width = 555
+height = 4
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_wrios"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 0, 1, 1, 0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q47q4"]
+gradient = SubResource("Gradient_wrios")
+width = 555
+height = 4
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Gradient" id="Gradient_h8ke7"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_craiq"]
+gradient = SubResource("Gradient_h8ke7")
+width = 3
+height = 170
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5amfe"]
 gradient = SubResource("Gradient_h8ke7")
@@ -26,6 +97,11 @@ height = 170
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3wi4b"]
 gradient = SubResource("Gradient_h8ke7")
 width = 2
+height = 170
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_knymh"]
+gradient = SubResource("Gradient_h8ke7")
+width = 1
 height = 170
 
 [node name="Timeline" type="Area2D"]
@@ -39,130 +115,296 @@ shape = SubResource("RectangleShape2D_6pvkd")
 position = Vector2(277.5, 0)
 texture = SubResource("GradientTexture2D_d6u2s")
 
-[node name="Beat1" type="Sprite2D" parent="."]
+[node name="Tom High" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(277.5, 37)
+texture = SubResource("GradientTexture2D_s0eas")
+
+[node name="Crush" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(277.5, 61)
+texture = SubResource("GradientTexture2D_rqgba")
+
+[node name="Snare" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(277.5, 85)
+texture = SubResource("GradientTexture2D_mcg4g")
+
+[node name="Kick" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(277.5, 109)
+texture = SubResource("GradientTexture2D_v2vj7")
+
+[node name="Ride" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(277.5, 133)
+texture = SubResource("GradientTexture2D_er15r")
+
+[node name="Tom Low" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(277.5, 157)
+texture = SubResource("GradientTexture2D_q47q4")
+
+[node name="Half" type="Node2D" parent="."]
+
+[node name="InbetweenBeat2" type="Sprite2D" parent="Half"]
+position = Vector2(36.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="InbetweenBeat5" type="Sprite2D" parent="Half"]
+position = Vector2(105.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="InbetweenBeat8" type="Sprite2D" parent="Half"]
+position = Vector2(174.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="InbetweenBeat11" type="Sprite2D" parent="Half"]
+position = Vector2(243.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="InbetweenBeat14" type="Sprite2D" parent="Half"]
+position = Vector2(312.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="InbetweenBeat17" type="Sprite2D" parent="Half"]
+position = Vector2(381.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="InbetweenBeat23" type="Sprite2D" parent="Half"]
+position = Vector2(519.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="InbetweenBeat20" type="Sprite2D" parent="Half"]
+position = Vector2(450.406, 97)
+texture = SubResource("GradientTexture2D_craiq")
+
+[node name="Whole" type="Node2D" parent="."]
+
+[node name="Beat1" type="Sprite2D" parent="Whole"]
 position = Vector2(2, 97)
 texture = SubResource("GradientTexture2D_5amfe")
 
-[node name="InbetweenBeat1" type="Sprite2D" parent="."]
-position = Vector2(19, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat2" type="Sprite2D" parent="."]
-position = Vector2(36.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat3" type="Sprite2D" parent="."]
-position = Vector2(53.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat4" type="Sprite2D" parent="."]
-position = Vector2(88, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat5" type="Sprite2D" parent="."]
-position = Vector2(105.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat6" type="Sprite2D" parent="."]
-position = Vector2(122.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat7" type="Sprite2D" parent="."]
-position = Vector2(157, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat8" type="Sprite2D" parent="."]
-position = Vector2(174.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat9" type="Sprite2D" parent="."]
-position = Vector2(191.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat10" type="Sprite2D" parent="."]
-position = Vector2(226, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat11" type="Sprite2D" parent="."]
-position = Vector2(243.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat12" type="Sprite2D" parent="."]
-position = Vector2(260.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat13" type="Sprite2D" parent="."]
-position = Vector2(295, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat14" type="Sprite2D" parent="."]
-position = Vector2(312.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat15" type="Sprite2D" parent="."]
-position = Vector2(329.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat16" type="Sprite2D" parent="."]
-position = Vector2(364, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat17" type="Sprite2D" parent="."]
-position = Vector2(381.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat18" type="Sprite2D" parent="."]
-position = Vector2(398.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat22" type="Sprite2D" parent="."]
-position = Vector2(502, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat23" type="Sprite2D" parent="."]
-position = Vector2(519.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat24" type="Sprite2D" parent="."]
-position = Vector2(536.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat19" type="Sprite2D" parent="."]
-position = Vector2(433, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat20" type="Sprite2D" parent="."]
-position = Vector2(450.406, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="InbetweenBeat21" type="Sprite2D" parent="."]
-position = Vector2(467.812, 97)
-texture = SubResource("GradientTexture2D_3wi4b")
-
-[node name="Beat2" type="Sprite2D" parent="."]
+[node name="Beat2" type="Sprite2D" parent="Whole"]
 position = Vector2(71, 97)
 texture = SubResource("GradientTexture2D_5amfe")
 
-[node name="Beat3" type="Sprite2D" parent="."]
+[node name="Beat3" type="Sprite2D" parent="Whole"]
 position = Vector2(140, 97)
 texture = SubResource("GradientTexture2D_5amfe")
 
-[node name="Beat4" type="Sprite2D" parent="."]
+[node name="Beat4" type="Sprite2D" parent="Whole"]
 position = Vector2(209, 97)
 texture = SubResource("GradientTexture2D_5amfe")
 
-[node name="Beat5" type="Sprite2D" parent="."]
+[node name="Beat5" type="Sprite2D" parent="Whole"]
 position = Vector2(278, 97)
 texture = SubResource("GradientTexture2D_5amfe")
 
-[node name="Beat6" type="Sprite2D" parent="."]
+[node name="Beat6" type="Sprite2D" parent="Whole"]
 position = Vector2(347, 97)
 texture = SubResource("GradientTexture2D_5amfe")
 
-[node name="Beat7" type="Sprite2D" parent="."]
+[node name="Beat7" type="Sprite2D" parent="Whole"]
 position = Vector2(416, 97)
 texture = SubResource("GradientTexture2D_5amfe")
 
-[node name="Beat8" type="Sprite2D" parent="."]
+[node name="Beat8" type="Sprite2D" parent="Whole"]
 position = Vector2(485, 97)
 texture = SubResource("GradientTexture2D_5amfe")
+
+[node name="Quarter" type="Node2D" parent="."]
+
+[node name="InbetweenBeat1" type="Sprite2D" parent="Quarter"]
+position = Vector2(19, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat3" type="Sprite2D" parent="Quarter"]
+position = Vector2(53.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat4" type="Sprite2D" parent="Quarter"]
+position = Vector2(88, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat6" type="Sprite2D" parent="Quarter"]
+position = Vector2(122.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat7" type="Sprite2D" parent="Quarter"]
+position = Vector2(157, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat9" type="Sprite2D" parent="Quarter"]
+position = Vector2(191.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat10" type="Sprite2D" parent="Quarter"]
+position = Vector2(226, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat12" type="Sprite2D" parent="Quarter"]
+position = Vector2(260.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat13" type="Sprite2D" parent="Quarter"]
+position = Vector2(295, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat15" type="Sprite2D" parent="Quarter"]
+position = Vector2(329.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat16" type="Sprite2D" parent="Quarter"]
+position = Vector2(364, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat18" type="Sprite2D" parent="Quarter"]
+position = Vector2(398.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat22" type="Sprite2D" parent="Quarter"]
+position = Vector2(502, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat24" type="Sprite2D" parent="Quarter"]
+position = Vector2(536.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat19" type="Sprite2D" parent="Quarter"]
+position = Vector2(433, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="InbetweenBeat21" type="Sprite2D" parent="Quarter"]
+position = Vector2(467.812, 97)
+texture = SubResource("GradientTexture2D_3wi4b")
+
+[node name="Eighth" type="Node2D" parent="."]
+
+[node name="InbetweenBeat1" type="Sprite2D" parent="Eighth"]
+position = Vector2(11, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat2" type="Sprite2D" parent="Eighth"]
+position = Vector2(27.5, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat3" type="Sprite2D" parent="Eighth"]
+position = Vector2(45.5, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat4" type="Sprite2D" parent="Eighth"]
+position = Vector2(62, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat5" type="Sprite2D" parent="Eighth"]
+position = Vector2(80, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat6" type="Sprite2D" parent="Eighth"]
+position = Vector2(96.5, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat7" type="Sprite2D" parent="Eighth"]
+position = Vector2(114.5, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat8" type="Sprite2D" parent="Eighth"]
+position = Vector2(130.75, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat9" type="Sprite2D" parent="Eighth"]
+position = Vector2(149, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat10" type="Sprite2D" parent="Eighth"]
+position = Vector2(165.5, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat11" type="Sprite2D" parent="Eighth"]
+position = Vector2(183.5, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat12" type="Sprite2D" parent="Eighth"]
+position = Vector2(199.75, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat13" type="Sprite2D" parent="Eighth"]
+position = Vector2(218, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat14" type="Sprite2D" parent="Eighth"]
+position = Vector2(234.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat15" type="Sprite2D" parent="Eighth"]
+position = Vector2(252.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat16" type="Sprite2D" parent="Eighth"]
+position = Vector2(268.75, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat17" type="Sprite2D" parent="Eighth"]
+position = Vector2(287, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat18" type="Sprite2D" parent="Eighth"]
+position = Vector2(303.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat19" type="Sprite2D" parent="Eighth"]
+position = Vector2(321.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat20" type="Sprite2D" parent="Eighth"]
+position = Vector2(337.75, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat21" type="Sprite2D" parent="Eighth"]
+position = Vector2(356, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat22" type="Sprite2D" parent="Eighth"]
+position = Vector2(372.5, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat23" type="Sprite2D" parent="Eighth"]
+position = Vector2(390.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat24" type="Sprite2D" parent="Eighth"]
+position = Vector2(406.75, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat25" type="Sprite2D" parent="Eighth"]
+position = Vector2(425, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat26" type="Sprite2D" parent="Eighth"]
+position = Vector2(441.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat27" type="Sprite2D" parent="Eighth"]
+position = Vector2(459.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat28" type="Sprite2D" parent="Eighth"]
+position = Vector2(475.75, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat29" type="Sprite2D" parent="Eighth"]
+position = Vector2(494, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat30" type="Sprite2D" parent="Eighth"]
+position = Vector2(510.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat31" type="Sprite2D" parent="Eighth"]
+position = Vector2(528.25, 97)
+texture = SubResource("GradientTexture2D_knymh")
+
+[node name="InbetweenBeat32" type="Sprite2D" parent="Eighth"]
+position = Vector2(546, 97)
+texture = SubResource("GradientTexture2D_knymh")

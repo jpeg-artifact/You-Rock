@@ -8,6 +8,12 @@ public partial class Timeline : Area2D
 
     private Sheet _sheet;
     private Globals _globals;
+    private Camera _camera;
+    private Node2D _wholeNotes;
+    private Node2D _halfNotes;
+    private Node2D _quarterNotes;
+    private Node2D _eighthNotes;
+
     public float PixelWidth { 
         get { return GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().Size.X;}
     }
@@ -19,6 +25,25 @@ public partial class Timeline : Area2D
 
         _sheet = GetParent<Node2D>().GetParent<Sheet>();
         _globals = GetNode<Globals>("/root/Globals");
+        _camera = GetNode<Camera>("/root/Main/Camera");
+        _wholeNotes = GetNode<Node2D>("Whole");
+        _halfNotes = GetNode<Node2D>("Half");
+        _quarterNotes = GetNode<Node2D>("Quarter");
+        _eighthNotes = GetNode<Node2D>("Eighth");
+    }
+
+    public override void _Process(double delta)
+    {
+        _halfNotes.Visible = false;
+        _quarterNotes.Visible = false;
+        _eighthNotes.Visible = false;
+
+        if (_camera.Zoom.X >= 5)
+            _eighthNotes.Visible = true;
+        if (_camera.Zoom.X >= 1.8)
+            _quarterNotes.Visible = true;
+        if (_camera.Zoom.X >= 1)
+            _halfNotes.Visible = true;
     }
 
     private void OnMouseEntered()
