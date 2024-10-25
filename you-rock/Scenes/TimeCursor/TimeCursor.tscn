@@ -9,11 +9,11 @@ colors = PackedColorArray(1, 0, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_amcc5"]
 gradient = SubResource("Gradient_5cr6y")
 width = 5
-height = 200
+height = 180
 
 [node name="TimeCursor" type="Node2D"]
 script = ExtResource("1_e84nl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 100)
+position = Vector2(0, 90)
 texture = SubResource("GradientTexture2D_amcc5")

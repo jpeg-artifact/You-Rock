@@ -27,11 +27,14 @@ public partial class PlaybackManager : Node
 		}
     }
 
+	float lastTimePosition = 0;
     public override void _Process(double delta)
     {
         if (_audioStreamPlayer.Playing)
 		{
 			_globals.TimePosition = _audioStreamPlayer.GetPlaybackPosition();
 		}
+		
+		lastTimePosition = _globals.TimePosition;
     }
 }
