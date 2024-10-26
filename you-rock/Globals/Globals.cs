@@ -125,12 +125,12 @@ public partial class Globals : Node
 		set {
 			EmitSignal(SignalName.BeatPositionChanged, value); 
 			_beatPosition = value;
-			GD.Print(value);
 		}
 	}
+	[Export] public int PercussionTypeFocused { get; set; } = -1;
 	public int TotalBeats { 
 		get {
-			return (int)Math.Ceiling((float)BeatsPerMinute * ((float)SongLengthInSeconds / 60));
+			return (int)Math.Floor((float)BeatsPerMinute * ((float)SongLengthInSeconds / 60));
 		}
 	}
 	public float TimePerTimeline { 

@@ -1,9 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://dbj0xhs4ljsgj"]
+[gd_scene load_steps=23 format=3 uid="uid://dbj0xhs4ljsgj"]
 
 [ext_resource type="Script" path="res://Scenes/Timeline/Timeline.cs" id="1_sldvt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pvkd"]
-size = Vector2(555, 24)
 
 [sub_resource type="Gradient" id="Gradient_7v4c4"]
 offsets = PackedFloat32Array(1)
@@ -104,18 +101,20 @@ gradient = SubResource("Gradient_h8ke7")
 width = 1
 height = 170
 
-[node name="Timeline" type="Area2D"]
-script = ExtResource("1_sldvt")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7od60"]
+size = Vector2(555, 24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(277.5, 0)
-shape = SubResource("RectangleShape2D_6pvkd")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pvkd"]
+size = Vector2(555, 14)
+
+[node name="Timeline" type="Node2D"]
+script = ExtResource("1_sldvt")
 
 [node name="TimelineSprite" type="Sprite2D" parent="."]
 position = Vector2(277.5, 0)
 texture = SubResource("GradientTexture2D_d6u2s")
 
-[node name="Tom High" type="Sprite2D" parent="."]
+[node name="TomHigh" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(277.5, 37)
 texture = SubResource("GradientTexture2D_s0eas")
@@ -140,7 +139,7 @@ texture_filter = 1
 position = Vector2(277.5, 133)
 texture = SubResource("GradientTexture2D_er15r")
 
-[node name="Tom Low" type="Sprite2D" parent="."]
+[node name="TomLow" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(277.5, 157)
 texture = SubResource("GradientTexture2D_q47q4")
@@ -408,3 +407,51 @@ texture = SubResource("GradientTexture2D_knymh")
 [node name="InbetweenBeat32" type="Sprite2D" parent="Eighth"]
 position = Vector2(546, 97)
 texture = SubResource("GradientTexture2D_knymh")
+
+[node name="TimelineArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimelineArea"]
+position = Vector2(277.5, 0)
+shape = SubResource("RectangleShape2D_7od60")
+
+[node name="TomHighArea" type="Area2D" parent="."]
+position = Vector2(0, 37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TomHighArea"]
+position = Vector2(277.5, 0)
+shape = SubResource("RectangleShape2D_6pvkd")
+
+[node name="CrushArea" type="Area2D" parent="."]
+position = Vector2(0, 61)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushArea"]
+position = Vector2(277.5, 0)
+shape = SubResource("RectangleShape2D_6pvkd")
+
+[node name="SnareArea" type="Area2D" parent="."]
+position = Vector2(0, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnareArea"]
+position = Vector2(277.5, 0)
+shape = SubResource("RectangleShape2D_6pvkd")
+
+[node name="KickArea" type="Area2D" parent="."]
+position = Vector2(0, 109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KickArea"]
+position = Vector2(277.5, 0)
+shape = SubResource("RectangleShape2D_6pvkd")
+
+[node name="RideArea" type="Area2D" parent="."]
+position = Vector2(0, 133)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RideArea"]
+position = Vector2(277.5, 0)
+shape = SubResource("RectangleShape2D_6pvkd")
+
+[node name="TomLowArea" type="Area2D" parent="."]
+position = Vector2(0, 157)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TomLowArea"]
+position = Vector2(277.5, 0)
+shape = SubResource("RectangleShape2D_6pvkd")

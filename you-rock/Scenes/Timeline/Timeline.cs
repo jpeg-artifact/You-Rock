@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Timeline : Area2D
+public partial class Timeline : Node2D
 {
     [Export] public int Index { get; set; }
 	[Export] public bool IsFocus { get; set; }
@@ -13,16 +13,21 @@ public partial class Timeline : Area2D
     private Node2D _halfNotes;
     private Node2D _quarterNotes;
     private Node2D _eighthNotes;
+    private Area2D _timelineArea;
+    private Area2D _tomHighArea;
+    private Area2D _crushArea;
+    private Area2D _snareArea;
+    private Area2D _kickArea;
+    private Area2D _rideArea;
+    private Area2D _tomLowArea;
 
     public float PixelWidth { 
-        get { return GetNode<CollisionShape2D>("CollisionShape2D").Shape.GetRect().Size.X;}
+        get { return GetNode<CollisionShape2D>("TimelineArea/CollisionShape2D").Shape.GetRect().Size.X;}
     }
 
     public override void _Ready()
     {
-        MouseEntered += OnMouseEntered;
-        MouseExited += OnMouseExited;
-
+        _timelineArea = GetNode<Area2D>("TimelineArea");
         _sheet = GetParent<Node2D>().GetParent<Sheet>();
         _globals = GetNode<Globals>("/root/Globals");
         _camera = GetNode<Camera>("/root/Main/Camera");
@@ -30,6 +35,29 @@ public partial class Timeline : Area2D
         _halfNotes = GetNode<Node2D>("Half");
         _quarterNotes = GetNode<Node2D>("Quarter");
         _eighthNotes = GetNode<Node2D>("Eighth");
+        _tomHighArea = GetNode<Area2D>("TomHighArea");
+        _crushArea = GetNode<Area2D>("CrushArea");
+        _snareArea = GetNode<Area2D>("SnareArea");
+        _kickArea = GetNode<Area2D>("KickArea");
+        _rideArea = GetNode<Area2D>("RideArea");
+        _tomLowArea = GetNode<Area2D>("TomLowArea");
+
+        _timelineArea.MouseEntered += () => IsFocus = true;
+        _timelineArea.MouseExited += () => IsFocus = false;
+
+        _snareArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
+        _kickArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
+        _tomHighArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
+        _tomLowArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
+        _crushArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
+        _rideArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
+
+        _snareArea.MouseEntered += () => _globals.PercussionTypeFocused = 1;
+        _kickArea.MouseEntered += () => _globals.PercussionTypeFocused = 2;
+        _tomHighArea.MouseEntered += () => _globals.PercussionTypeFocused = 3;
+        _tomLowArea.MouseEntered += () => _globals.PercussionTypeFocused = 4;
+        _crushArea.MouseEntered += () => _globals.PercussionTypeFocused = 5;
+        _rideArea.MouseEntered += () => _globals.PercussionTypeFocused = 6;
     }
 
     public override void _Process(double delta)
@@ -46,16 +74,6 @@ public partial class Timeline : Area2D
             _halfNotes.Visible = true;
     }
 
-    private void OnMouseEntered()
-    {
-        IsFocus = true;
-    }
-
-    private void OnMouseExited()
-    {
-        IsFocus = false;
-    }
-
     public override void _UnhandledInput(InputEvent @event)
     {
         if (IsFocus && Input.IsActionPressed("Click"))
@@ -66,4 +84,6 @@ public partial class Timeline : Area2D
             _globals.TimePosition = Mathf.Max(sheetOffset + timelineOffset, 0);
         }
     }
+
+
 }
