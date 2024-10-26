@@ -1,12 +1,12 @@
-# You Rock; a Drums Rock editor inspired by Musescore
+# You Rock: a Drums Rock editor inspired by Musescore
 A standalone custom song creator for Drums Rock. No more spread sheets!
 
 ## Installition
 TODO
 
 ## Usage
-- Make sure that the sound file doesn't have scilence in beginning.
-- Create a folder with your **song.ogg** and **preview.ogg** is present in folder.
+- Make sure that the sound file doesn't have silence in beginning.
+- Create a folder with your **song.ogg** and **preview.ogg** is present in the folder.
 - Start project and press **File > Open**, find you project folder then press **Select Current Folder**.
 - Enter the Beats Per Minutes of you song.
 - Start mapping!
