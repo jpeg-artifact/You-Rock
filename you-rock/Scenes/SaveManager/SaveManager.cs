@@ -150,6 +150,12 @@ public partial class SaveManager : Node
 		}
 	}
 
+	// Import from notes.csv file
+	private void ImportNotesFile()
+	{
+
+	}
+	
 	public void Save()
 	{
 		ExportInfoFile();

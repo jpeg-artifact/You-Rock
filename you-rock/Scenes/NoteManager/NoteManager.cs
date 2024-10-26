@@ -16,13 +16,7 @@ public partial class NoteManager : Node2D
 	{
 		if (_globals.PercussionTypeFocused != -1 && Input.IsActionJustPressed("LeftClick"))
 		{
-			PackedScene noteScene = GD.Load<PackedScene>("res://Scenes/Note/Note.tscn");
-			Note note = noteScene.Instantiate() as Note;
-			note.Position = SetNotePosition(_globals.BeatPositionToTimePosition(_globals.MouseCursorBeatPosition), _globals.PercussionTypeFocused);
-			note.TimePosition = _globals.BeatPositionToTimePosition(_globals.MouseCursorBeatPosition);
-			note.Beat = _globals.MouseCursorBeatPosition;
-			note.Color = _globals.PercussionTypeFocused;
-			AddChild(note);
+			AddNoteFromBeatPosition(_globals.MouseCursorBeatPosition, _globals.PercussionTypeFocused);
 		}
 	}
 
@@ -34,5 +28,16 @@ public partial class NoteManager : Node2D
 		Area2D percussionArea = timeline.PercussionAreas[percussionType - 1];
 
 		return percussionArea.GlobalPosition + new Vector2(timeline.PixelWidth * ((timePosition - _globals.TimePerTimeline * 4 * sheet.Index - _globals.TimePerTimeline * timeline.Index) / _globals.TimePerTimeline), 0);
+	}
+
+	private void AddNoteFromBeatPosition(float beatPosition, int PercussionType)
+	{
+		PackedScene noteScene = GD.Load<PackedScene>("res://Scenes/Note/Note.tscn");
+		Note note = noteScene.Instantiate() as Note;
+		note.Position = SetNotePosition(_globals.BeatPositionToTimePosition(beatPosition), PercussionType);
+		note.TimePosition = _globals.BeatPositionToTimePosition(beatPosition);
+		note.Beat = beatPosition;
+		note.Color = PercussionType;
+		AddChild(note);
 	}
 }
