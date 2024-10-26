@@ -5,6 +5,7 @@ public partial class Note : Area2D
 {
 	[Export] public float TimePosition { get; set; } = 0;
 	[Export] public float Beat { get; set; } = 0;
+	[Export] public int Interval { get; set; } = 0;
 	[Export] public bool IsFocus { get; set; } = false;
 	/*
 	Snare = 1
@@ -14,7 +15,7 @@ public partial class Note : Area2D
 	Crush = 5
 	Ride = 6
 	*/
-	[Export] public int Type { get; set; }
+	[Export] public int Color { get; set; }
 
 	private Globals _globals;
 	private AudioStreamPlayer _audioStreamPlayer;

@@ -21,7 +21,7 @@ public partial class NoteManager : Node2D
 			note.Position = SetNotePosition(_globals.BeatPositionToTimePosition(_globals.MouseCursorBeatPosition), _globals.PercussionTypeFocused);
 			note.TimePosition = _globals.BeatPositionToTimePosition(_globals.MouseCursorBeatPosition);
 			note.Beat = _globals.MouseCursorBeatPosition;
-			note.Type = _globals.PercussionTypeFocused;
+			note.Color = _globals.PercussionTypeFocused;
 			AddChild(note);
 		}
 	}
