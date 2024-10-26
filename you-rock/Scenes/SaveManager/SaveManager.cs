@@ -75,7 +75,7 @@ public partial class SaveManager : Node
 
 		string path = Path.Combine(_globals.ProjectPath, "notes.csv");
 		using StreamWriter fileWrite = new(path);
-		fileWrite.WriteLine("Temps [s],Enemy Type,Color 1,Color 2,Nº Enemies,interval,Spawn point (1-5)");
+		fileWrite.WriteLine("Time [s],Enemy Type,Aux Color 1,Aux Color 2,Nº Enemies,interval,Aux");
 
 		bool doubleNote = false;
 
@@ -104,7 +104,6 @@ public partial class SaveManager : Node
 				interval = note.Interval.ToString();
 			}
 				
-
 			// If this note and the next one have the exact same time then it's a double note
 			if (i + 1 < notes.Count)
 			{
@@ -116,7 +115,7 @@ public partial class SaveManager : Node
 				}
 			}
 
-			noteTime = note.TimePosition.ToString();
+			noteTime = note.TimePosition.ToString().Replace(",", ".");
 			color1 = note.Color.ToString();
 
 			if (!doubleNote)
