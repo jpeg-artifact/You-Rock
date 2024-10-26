@@ -2,7 +2,7 @@
 A standalone custom song creator for Drums Rock. No more spread sheets!
 
 ## Installition
-- Go to [releases][https://github.com/jpeg-artifact/You-Rock/releases/tag/feat](https://github.com/jpeg-artifact/You-Rock/releases/tag/feat) and download the latest release.
+- Go to [releases](https://github.com/jpeg-artifact/You-Rock/releases/tag/feat) and download the latest release.
 - Extract **.zip**.
 - Open you-rock.exe.
 
