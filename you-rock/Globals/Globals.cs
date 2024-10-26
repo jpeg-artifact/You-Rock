@@ -135,10 +135,13 @@ public partial class Globals : Node
 		} 
 		set {
 			_mouseCursorTimePosition = value;
-			MouseCursorBeatPosition = Mathf.Round((float)TotalBeats * (TimePosition / (float)SongLengthInSeconds) * BeatsPerTimeline) / BeatsPerTimeline;
 		}
 	}
-	[Export] public float MouseCursorBeatPosition { get; set; }
+
+	[Export] public float MouseCursorBeatPosition { 
+		get { return Mathf.Round((float)TotalBeats * (MouseCursorTimePosition / (float)SongLengthInSeconds) * BeatsPerTimeline) / BeatsPerTimeline; }
+		set {}
+	}
 	public int TotalBeats { 
 		get {
 			return (int)Math.Floor((float)BeatsPerMinute * ((float)SongLengthInSeconds / 60));
@@ -151,4 +154,9 @@ public partial class Globals : Node
 
 	public const int BeatsPerTimeline = 8;
 	public const int BeatsPerSheet = BeatsPerTimeline * 4;
+
+	public float BeatPositionToTimePosition(float beatPosition)
+	{
+		return (float)SongLengthInSeconds * (beatPosition / TotalBeats);
+	}
 }

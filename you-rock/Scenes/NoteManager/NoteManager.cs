@@ -10,32 +10,29 @@ public partial class NoteManager : Node2D
 	{
 		_sheetManager = GetNode<SheetManager>("/root/Main/SheetManager");
 		_globals = GetNode<Globals>("/root/Globals");
-
-		_globals.TimePositionChanged += PositionTimeCursor;
 	}
 
-	private Sheet GetSheetFromTimePosition(float timePosition)
+	public override void _UnhandledInput(InputEvent @event)
 	{
-		timePosition = Math.Max(timePosition, 0);
-		int sheetIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline / 4) - 1;
-		Sheet sheet = _sheetManager.GetChildren()[sheetIndex] as Sheet;
-		return sheet;
+		if (_globals.PercussionTypeFocused != -1 && Input.IsActionJustPressed("Click"))
+		{
+			PackedScene noteScene = GD.Load<PackedScene>("res://Scenes/Note/Note.tscn");
+			Note note = noteScene.Instantiate() as Note;
+			note.Position = SetNotePosition(_globals.BeatPositionToTimePosition(_globals.MouseCursorBeatPosition), _globals.PercussionTypeFocused);
+			note.TimePosition = _globals.BeatPositionToTimePosition(_globals.MouseCursorBeatPosition);
+			note.Beat = _globals.MouseCursorBeatPosition;
+			note.Type = _globals.PercussionTypeFocused;
+			AddChild(note);
+		}
 	}
 
-	private Timeline GetTimelineFromTimePosition(float timePosition)
+	private Vector2 SetNotePosition(float timePosition, int percussionType)
 	{
-		timePosition = Math.Max(timePosition, 0);
-		Sheet sheet = GetSheetFromTimePosition(timePosition);
-		int timelineIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline - 1) % 4;
-		Timeline timeline = sheet.GetNode<Node2D>("Timelines").GetChildren()[timelineIndex] as Timeline;
-		return timeline;
-	}
+		Timeline timeline = _sheetManager.GetTimelineFromTimePosition(timePosition);
+		Sheet sheet = _sheetManager.GetSheetFromTimePosition(timePosition);
 
-	private void PositionTimeCursor(float timePosition)
-	{
-		Timeline timeline = GetTimelineFromTimePosition(timePosition);
-		Sheet sheet = GetSheetFromTimePosition(timePosition);
+		Area2D percussionArea = timeline.PercussionAreas[percussionType - 1];
 
-		Position = timeline.GlobalPosition + new Vector2(timeline.PixelWidth * ((timePosition - _globals.TimePerTimeline * 4 * sheet.Index - _globals.TimePerTimeline * timeline.Index) / _globals.TimePerTimeline), 0);
+		return percussionArea.GlobalPosition + new Vector2(timeline.PixelWidth * ((timePosition - _globals.TimePerTimeline * 4 * sheet.Index - _globals.TimePerTimeline * timeline.Index) / _globals.TimePerTimeline), 0);
 	}
 }

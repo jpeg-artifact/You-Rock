@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://xk4iag2v02yn"]
+[gd_scene load_steps=8 format=3 uid="uid://xk4iag2v02yn"]
 
 [ext_resource type="PackedScene" uid="uid://b4dbg5ux4q70f" path="res://Scenes/Camera/Camera.tscn" id="1_7rc6c"]
 [ext_resource type="PackedScene" uid="uid://ul08nhvr3h6f" path="res://Scenes/Hud/Hud.tscn" id="1_7ttyc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dqxpk46c4q0ei" path="res://Scenes/SaveManager/SaveManager.tscn" id="4_wq1ko"]
 [ext_resource type="PackedScene" uid="uid://cup8iyrt7orgv" path="res://Scenes/SheetManager/SheetManager.tscn" id="5_3cspo"]
 [ext_resource type="PackedScene" uid="uid://jvui8ty2kkvc" path="res://Scenes/TimeCursor/TimeCursor.tscn" id="6_h2mft"]
+[ext_resource type="PackedScene" uid="uid://8bqi2oy6pgdg" path="res://Scenes/NoteManager/NoteManager.tscn" id="6_l5sf8"]
 
 [node name="Main" type="Node2D"]
 
@@ -18,6 +19,8 @@
 [node name="PlaybackManager" parent="." instance=ExtResource("3_lqkxn")]
 
 [node name="SheetManager" parent="." instance=ExtResource("5_3cspo")]
+
+[node name="NoteManager" parent="." instance=ExtResource("6_l5sf8")]
 
 [node name="TimeCursor" parent="." instance=ExtResource("6_h2mft")]
 

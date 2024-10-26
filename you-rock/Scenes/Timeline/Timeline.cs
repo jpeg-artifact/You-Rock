@@ -6,6 +6,7 @@ public partial class Timeline : Node2D
     [Export] public int Index { get; set; }
     [Export] public bool TimelineIsFocus { get; set; }
     [Export] public bool MouseHoverOver { get; set; }
+    public Godot.Collections.Array<Area2D> PercussionAreas { get; set; }
 
     private Sheet _sheet;
     private Globals _globals;
@@ -45,6 +46,15 @@ public partial class Timeline : Node2D
         _rideArea = GetNode<Area2D>("RideArea");
         _tomLowArea = GetNode<Area2D>("TomLowArea");
         _hoverArea = GetNode<Area2D>("HoverArea");
+
+        PercussionAreas = new Godot.Collections.Array<Area2D>{
+            _snareArea, 
+            _kickArea,
+            _tomHighArea,
+            _tomLowArea,
+            _crushArea,
+            _rideArea
+        };
 
         _timelineArea.MouseEntered += () => TimelineIsFocus = true;
         _timelineArea.MouseExited += () => TimelineIsFocus = false;
@@ -101,6 +111,4 @@ public partial class Timeline : Node2D
         else
             _globals.MouseCursorTimePosition = 0;
     }
-
-    
 }

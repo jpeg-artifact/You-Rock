@@ -1,10 +1,11 @@
 using Godot;
 using System;
 
-public partial class Note : Node2D
+public partial class Note : Area2D
 {
 	[Export] public float TimePosition { get; set; } = 0;
 	[Export] public float Beat { get; set; } = 0;
+	[Export] public bool IsFocus { get; set; } = false;
 	/*
 	Snare = 1
 	Kick = 2
@@ -13,7 +14,7 @@ public partial class Note : Node2D
 	Crush = 5
 	Ride = 6
 	*/
-	[Export] public int Type { get; set; } = 0; 
+	[Export] public int Type { get; set; }
 
 	private Globals _globals;
 	private AudioStreamPlayer _audioStreamPlayer;
@@ -22,13 +23,22 @@ public partial class Note : Node2D
     {
         _globals = GetNode<Globals>("/root/Globals");
 		_audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-
-		SetSound(Type);
-
+		SetSound(_globals.PercussionTypeFocused);
 		_globals.BeatPositionChanged += (float beatPosition) => { if (beatPosition == Beat) PlaySound(); };
+
+		MouseEntered += () => IsFocus = true;
+		MouseExited += () => IsFocus = false;
     }
 
-	private void SetSound(int type)
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (IsFocus && Input.IsActionJustPressed(""))
+		{
+			
+		}
+    }
+
+    private void SetSound(int type)
 	{
 		switch (type)
 		{

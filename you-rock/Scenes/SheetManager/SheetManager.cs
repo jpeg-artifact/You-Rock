@@ -26,7 +26,6 @@ public partial class SheetManager : Node2D
     private void RemoveSheet(int index)
     {
         GetChildren()[index].QueueFree();
-        GD.Print(index + " Sheet removed!");
     }
 
     private void SetSheetAmount(int totalBeats)
@@ -57,4 +56,21 @@ public partial class SheetManager : Node2D
         int totalBeats = (int)Math.Ceiling((float)beatsPerMinute * ((float)_globals.SongLengthInSeconds / 60));
         SetSheetAmount(totalBeats);
     }
+
+    public Sheet GetSheetFromTimePosition(float timePosition)
+	{
+		timePosition = Math.Max(timePosition, 0);
+		int sheetIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline / 4) - 1;
+		Sheet sheet = GetChildren()[sheetIndex] as Sheet;
+		return sheet;
+	}
+
+	public Timeline GetTimelineFromTimePosition(float timePosition)
+	{
+		timePosition = Math.Max(timePosition, 0);
+		Sheet sheet = GetSheetFromTimePosition(timePosition);
+		int timelineIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline - 1) % 4;
+		Timeline timeline = sheet.GetNode<Node2D>("Timelines").GetChildren()[timelineIndex] as Timeline;
+		return timeline;
+	}
 }

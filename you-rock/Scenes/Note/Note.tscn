@@ -1,7 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://p8a8qbtn3242"]
 
 [ext_resource type="Script" path="res://Scenes/Note/Note.cs" id="1_6fotw"]
-[ext_resource type="AudioStream" uid="uid://corxuapmjrqup" path="res://Assets/Sounds/ride.ogg" id="2_f1b7l"]
 
 [sub_resource type="Gradient" id="Gradient_mqpyv"]
 interpolation_mode = 1
@@ -9,12 +8,15 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cfq8e"]
 gradient = SubResource("Gradient_mqpyv")
-width = 5
-height = 5
+width = 6
+height = 6
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Note" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3agch"]
+size = Vector2(5.65686, 5.65686)
+
+[node name="Area2D" type="Area2D"]
 script = ExtResource("1_6fotw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,6 +24,11 @@ texture_filter = 1
 rotation = 0.785398
 texture = SubResource("GradientTexture2D_cfq8e")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.49012e-07, 0)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3agch")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_f1b7l")
 volume_db = 10.0
