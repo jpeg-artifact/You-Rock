@@ -32,6 +32,10 @@ public partial class NoteManager : Node2D
 
 	public void AddNoteFromBeatPosition(float beatPosition, int PercussionType, int interval)
 	{
+		foreach (Node node in GetChildren())
+			if (node is Note note1)
+				if (note1.Beat == beatPosition && note1.Color == PercussionType)
+					return;
 		PackedScene noteScene = GD.Load<PackedScene>("res://Scenes/Note/Note.tscn");
 		Note note = noteScene.Instantiate() as Note;
 		note.Position = SetNotePosition(_globals.BeatPositionToTimePosition(beatPosition), PercussionType);

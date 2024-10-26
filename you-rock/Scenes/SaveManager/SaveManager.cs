@@ -31,6 +31,7 @@ public partial class SaveManager : Node
 	private void ImportInfoFile()
 	{
 		string path = Path.Combine(_globals.ProjectPath, "info.csv");
+		if (!File.Exists(path)) return;
 		string[] lines = File.ReadAllLines(path);
 		string[] info = lines[1].Split(",");
 
@@ -45,6 +46,7 @@ public partial class SaveManager : Node
 	private void ImportSongFile()
 	{
 		string path = Path.Combine(_globals.ProjectPath, "song.ogg");
+		if (!File.Exists(path)) return;
 		_globals.SongFilePath = path;
 	}
 
@@ -52,6 +54,7 @@ public partial class SaveManager : Node
 	private void ImportNotesFile()
 	{
 		string path = Path.Combine(_globals.ProjectPath, "notes.csv");
+		if (!File.Exists(path)) return;
 		string[] lines = File.ReadAllLines(path);
 
 		for (int i = 1; i < lines.Length; i++)
@@ -76,11 +79,9 @@ public partial class SaveManager : Node
 	private void ImportProjectInfo()
 	{
 		string path = Path.Combine(_globals.ProjectPath, "project.csv");
-		if (File.Exists(path))
-		{
-			string[] lines = File.ReadAllLines(path);
-			_globals.BeatsPerMinute = int.Parse(lines[1]);
-		}
+		if (!File.Exists(path)) return;
+		string[] lines = File.ReadAllLines(path);
+		_globals.BeatsPerMinute = int.Parse(lines[1]);
 	}
 
 	// Export project info
@@ -160,7 +161,7 @@ public partial class SaveManager : Node
 				}
 			}
 
-			noteTime = note.TimePosition.ToString().Replace(",", ".");
+			noteTime = Math.Round(note.TimePosition, 2).ToString().Replace(",", ".");
 			color1 = note.Color.ToString();
 
 			if (!doubleNote)
