@@ -93,7 +93,7 @@ public partial class Timeline : Node2D
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (TimelineIsFocus && Input.IsActionPressed("Click"))
+        if (TimelineIsFocus && Input.IsActionPressed("LeftClick"))
         {
             float sheetOffset = _globals.TimePerTimeline * _sheet.Index * 4 + _globals.TimePerTimeline * (Index + 1) - _globals.TimePerTimeline;
             float timelineOffset = _globals.TimePerTimeline * ((GetGlobalMousePosition().X - _sheet.Position.X - Position.X) / PixelWidth);
@@ -108,7 +108,5 @@ public partial class Timeline : Node2D
 
             _globals.MouseCursorTimePosition = Mathf.Max(sheetOffset + timelineOffset, 0);
         }
-        else
-            _globals.MouseCursorTimePosition = 0;
     }
 }

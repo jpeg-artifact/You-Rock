@@ -18,23 +18,28 @@ public partial class Note : Area2D
 
 	private Globals _globals;
 	private AudioStreamPlayer _audioStreamPlayer;
+	private bool _queued = false;
 
     public override void _Ready()
     {
         _globals = GetNode<Globals>("/root/Globals");
 		_audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
 		SetSound(_globals.PercussionTypeFocused);
-		_globals.BeatPositionChanged += (float beatPosition) => { if (beatPosition == Beat) PlaySound(); };
+		_globals.BeatPositionChanged += PlaySound;
 
-		MouseEntered += () => IsFocus = true;
-		MouseExited += () => IsFocus = false;
+		MouseEntered += SetFocusTrue;
+		MouseExited += SetFocusFalse;
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (IsFocus && Input.IsActionJustPressed(""))
+        if (IsFocus && Input.IsActionJustPressed("RightClick") && !_queued)
 		{
-			
+			_globals.BeatPositionChanged -= PlaySound;
+			MouseEntered -= SetFocusTrue;
+			MouseExited -= SetFocusFalse;
+			this.QueueFree();
+			_queued = true;
 		}
     }
 
@@ -63,8 +68,19 @@ public partial class Note : Area2D
 		}
 	}
 
-	private void PlaySound()
+	private void PlaySound(float beatPosition)
 	{
-		_audioStreamPlayer.Play();
+		if (beatPosition == Beat)
+			_audioStreamPlayer.Play();
+	}
+
+	private void SetFocusTrue()
+	{
+		IsFocus = true;
+	}
+
+	private void SetFocusFalse()
+	{
+		IsFocus = false;
 	}
 }

@@ -14,7 +14,7 @@ public partial class NoteManager : Node2D
 
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		if (_globals.PercussionTypeFocused != -1 && Input.IsActionJustPressed("Click"))
+		if (_globals.PercussionTypeFocused != -1 && Input.IsActionJustPressed("LeftClick"))
 		{
 			PackedScene noteScene = GD.Load<PackedScene>("res://Scenes/Note/Note.tscn");
 			Note note = noteScene.Instantiate() as Note;
