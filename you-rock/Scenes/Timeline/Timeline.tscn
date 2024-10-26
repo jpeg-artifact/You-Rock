@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dbj0xhs4ljsgj"]
+[gd_scene load_steps=24 format=3 uid="uid://dbj0xhs4ljsgj"]
 
 [ext_resource type="Script" path="res://Scenes/Timeline/Timeline.cs" id="1_sldvt"]
 
@@ -106,6 +106,9 @@ size = Vector2(555, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pvkd"]
 size = Vector2(555, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m87ab"]
+size = Vector2(555, 194)
 
 [node name="Timeline" type="Node2D"]
 script = ExtResource("1_sldvt")
@@ -455,3 +458,10 @@ position = Vector2(0, 157)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TomLowArea"]
 position = Vector2(277.5, 0)
 shape = SubResource("RectangleShape2D_6pvkd")
+
+[node name="HoverArea" type="Area2D" parent="."]
+position = Vector2(0, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
+position = Vector2(278, 0)
+shape = SubResource("RectangleShape2D_m87ab")

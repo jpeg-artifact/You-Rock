@@ -128,6 +128,17 @@ public partial class Globals : Node
 		}
 	}
 	[Export] public int PercussionTypeFocused { get; set; } = -1;
+	private float _mouseCursorTimePosition = 0;
+	[Export] public float MouseCursorTimePosition { 
+		get {
+			return _mouseCursorTimePosition;
+		} 
+		set {
+			_mouseCursorTimePosition = value;
+			MouseCursorBeatPosition = Mathf.Round((float)TotalBeats * (TimePosition / (float)SongLengthInSeconds) * BeatsPerTimeline) / BeatsPerTimeline;
+		}
+	}
+	[Export] public float MouseCursorBeatPosition { get; set; }
 	public int TotalBeats { 
 		get {
 			return (int)Math.Floor((float)BeatsPerMinute * ((float)SongLengthInSeconds / 60));

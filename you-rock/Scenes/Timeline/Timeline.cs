@@ -4,7 +4,8 @@ using System;
 public partial class Timeline : Node2D
 {
     [Export] public int Index { get; set; }
-	[Export] public bool IsFocus { get; set; }
+    [Export] public bool TimelineIsFocus { get; set; }
+    [Export] public bool MouseHoverOver { get; set; }
 
     private Sheet _sheet;
     private Globals _globals;
@@ -20,9 +21,11 @@ public partial class Timeline : Node2D
     private Area2D _kickArea;
     private Area2D _rideArea;
     private Area2D _tomLowArea;
+    private Area2D _hoverArea;
 
-    public float PixelWidth { 
-        get { return GetNode<CollisionShape2D>("TimelineArea/CollisionShape2D").Shape.GetRect().Size.X;}
+    public float PixelWidth
+    {
+        get { return GetNode<CollisionShape2D>("TimelineArea/CollisionShape2D").Shape.GetRect().Size.X; }
     }
 
     public override void _Ready()
@@ -41,9 +44,13 @@ public partial class Timeline : Node2D
         _kickArea = GetNode<Area2D>("KickArea");
         _rideArea = GetNode<Area2D>("RideArea");
         _tomLowArea = GetNode<Area2D>("TomLowArea");
+        _hoverArea = GetNode<Area2D>("HoverArea");
 
-        _timelineArea.MouseEntered += () => IsFocus = true;
-        _timelineArea.MouseExited += () => IsFocus = false;
+        _timelineArea.MouseEntered += () => TimelineIsFocus = true;
+        _timelineArea.MouseExited += () => TimelineIsFocus = false;
+
+        _hoverArea.MouseEntered += () => MouseHoverOver = true;
+        _hoverArea.MouseExited += () => MouseHoverOver = false;
 
         _snareArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
         _kickArea.MouseExited += () => _globals.PercussionTypeFocused = -1;
@@ -76,14 +83,24 @@ public partial class Timeline : Node2D
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (IsFocus && Input.IsActionPressed("Click"))
+        if (TimelineIsFocus && Input.IsActionPressed("Click"))
         {
             float sheetOffset = _globals.TimePerTimeline * _sheet.Index * 4 + _globals.TimePerTimeline * (Index + 1) - _globals.TimePerTimeline;
-            float timelineOffset = _globals.TimePerTimeline * ((GetGlobalMousePosition().X - _sheet.Position.X - Position.X) / PixelWidth); 
+            float timelineOffset = _globals.TimePerTimeline * ((GetGlobalMousePosition().X - _sheet.Position.X - Position.X) / PixelWidth);
 
             _globals.TimePosition = Mathf.Max(sheetOffset + timelineOffset, 0);
         }
+
+        if (MouseHoverOver)
+        {
+            float sheetOffset = _globals.TimePerTimeline * _sheet.Index * 4 + _globals.TimePerTimeline * (Index + 1) - _globals.TimePerTimeline;
+            float timelineOffset = _globals.TimePerTimeline * ((GetGlobalMousePosition().X - _sheet.Position.X - Position.X) / PixelWidth);
+
+            _globals.MouseCursorTimePosition = Mathf.Max(sheetOffset + timelineOffset, 0);
+        }
+        else
+            _globals.MouseCursorTimePosition = 0;
     }
 
-
+    
 }
