@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://p8a8qbtn3242"]
+[gd_scene load_steps=11 format=3 uid="uid://p8a8qbtn3242"]
 
 [ext_resource type="Script" path="res://Scenes/Note/Note.cs" id="1_6fotw"]
+[ext_resource type="AudioStream" uid="uid://bkmehh84njwcg" path="res://Assets/Sounds/snare.ogg" id="2_q36d4"]
+[ext_resource type="AudioStream" uid="uid://08vmd636eufu" path="res://Assets/Sounds/kick.ogg" id="3_7rsfh"]
+[ext_resource type="AudioStream" uid="uid://cnordu6bsn0ub" path="res://Assets/Sounds/high_tom.ogg" id="4_rcm13"]
+[ext_resource type="AudioStream" uid="uid://bkr73kp7pkfty" path="res://Assets/Sounds/low_tom.ogg" id="5_5740q"]
+[ext_resource type="AudioStream" uid="uid://bge0x074m7stw" path="res://Assets/Sounds/crush.ogg" id="6_0lw86"]
+[ext_resource type="AudioStream" uid="uid://corxuapmjrqup" path="res://Assets/Sounds/ride.ogg" id="7_deil2"]
 
 [sub_resource type="Gradient" id="Gradient_mqpyv"]
 interpolation_mode = 1
@@ -29,5 +35,26 @@ position = Vector2(1.49012e-07, 0)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_3agch")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Snare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q36d4")
+volume_db = 10.0
+
+[node name="Kick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7rsfh")
+volume_db = 10.0
+
+[node name="TomHigh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rcm13")
+volume_db = 10.0
+
+[node name="TomLow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5740q")
+volume_db = 10.0
+
+[node name="Crush" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0lw86")
+volume_db = 10.0
+
+[node name="Ride" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_deil2")
 volume_db = 10.0

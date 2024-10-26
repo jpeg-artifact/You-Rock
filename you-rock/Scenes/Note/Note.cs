@@ -28,7 +28,6 @@ public partial class Note : Area2D
     public override void _Ready()
     {
         _globals = GetNode<Globals>("/root/Globals");
-		_audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
 		_globals.BeatPositionChanged += PlaySound;
 		SetSound(Color);
 
@@ -53,22 +52,22 @@ public partial class Note : Area2D
 		switch (type)
 		{
 			case 1:
-				_audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile("res://Assets/Sounds/snare.ogg");
+				_audioStreamPlayer = GetNode<AudioStreamPlayer>("Snare");
 				break;
 			case 2:
-				_audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile("res://Assets/Sounds/kick.ogg");
+				_audioStreamPlayer = GetNode<AudioStreamPlayer>("Kick");
 				break;
 			case 3:
-				_audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile("res://Assets/Sounds/high_tom.ogg");
+				_audioStreamPlayer = GetNode<AudioStreamPlayer>("TomHigh");
 				break;
 			case 4:
-				_audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile("res://Assets/Sounds/low_tom.ogg");
+				_audioStreamPlayer = GetNode<AudioStreamPlayer>("TomLow");
 				break;
 			case 5:
-				_audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile("res://Assets/Sounds/crush.ogg");
+				_audioStreamPlayer = GetNode<AudioStreamPlayer>("Crush");
 				break;
 			case 6:
-				_audioStreamPlayer.Stream = AudioStreamOggVorbis.LoadFromFile("res://Assets/Sounds/ride.ogg");
+				_audioStreamPlayer = GetNode<AudioStreamPlayer>("Ride");
 				break;
 		}
 	}
