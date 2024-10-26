@@ -159,4 +159,9 @@ public partial class Globals : Node
 	{
 		return (float)SongLengthInSeconds * (beatPosition / TotalBeats);
 	}
+
+	public float TimePositionToBeatPosition(float timePosition)
+	{
+		return Mathf.Round((float)TotalBeats * (timePosition / (float)SongLengthInSeconds) * BeatsPerTimeline) / BeatsPerTimeline;
+	}
 }

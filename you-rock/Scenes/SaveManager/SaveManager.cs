@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Collections.Specialized;
+using System.Globalization;
 
 public partial class SaveManager : Node
 {
@@ -47,6 +48,52 @@ public partial class SaveManager : Node
 		_globals.SongFilePath = path;
 	}
 
+	// Import from notes.csv file
+	private void ImportNotesFile()
+	{
+		string path = Path.Combine(_globals.ProjectPath, "notes.csv");
+		string[] lines = File.ReadAllLines(path);
+
+		for (int i = 1; i < lines.Length; i++)
+		{
+			string line = lines[i];
+			string[] data = line.Split(",");
+			float timePosition = float.Parse(data[0], CultureInfo.InvariantCulture.NumberFormat);
+			int enemyType = int.Parse(data[1]);
+			int color1 = int.Parse(data[2]);
+			int color2 = int.Parse(data[3]);
+			int interval = 0;
+			if (data[5] != string.Empty)
+				interval = int.Parse(data[5]);
+
+			_noteManager.AddNoteFromTimePosition(timePosition, color1, interval);
+			if (color1 != color2)
+				_noteManager.AddNoteFromTimePosition(timePosition, color2, interval);
+		}
+	}
+
+	// Import project info
+	private void ImportProjectInfo()
+	{
+		string path = Path.Combine(_globals.ProjectPath, "project.csv");
+		if (File.Exists(path))
+		{
+			string[] lines = File.ReadAllLines(path);
+			_globals.BeatsPerMinute = int.Parse(lines[1]);
+		}
+	}
+
+	// Export project info
+	private void ExportProjectInfo()
+	{
+		string path = Path.Combine(_globals.ProjectPath, "project.csv");
+		using StreamWriter fileWrite = new(path);
+		string header = "bpm";
+		fileWrite.WriteLine(header);
+		string info = $"{_globals.BeatsPerMinute}";
+		fileWrite.WriteLine(info);
+	}
+
 	// Exports info.csv file to project path location
 	private void ExportInfoFile()
 	{
@@ -54,10 +101,8 @@ public partial class SaveManager : Node
 		using StreamWriter fileWrite = new(path);
 		string header = "Song Name, Author Name,Difficulty(EASY = 0, MEDIUM = 1, HARD = 2, EXTREME = 3), Song Duration in seconds, Song Map (VULCAN = 0, DESERT = 1, STORM = 2, UNDERTALE = 3)";
 		fileWrite.WriteLine(header);
-		GD.Print(header);
 		string info = $"{_globals.SongName},{_globals.AuthorName},{_globals.Difficulty},{_globals.SongLengthInSeconds},{_globals.Theme}";
 		fileWrite.WriteLine(info);
-		GD.Print(info);
 	}
 
 	// Export notes.csv file
@@ -103,7 +148,7 @@ public partial class SaveManager : Node
 				enemyType = "3";
 				interval = note.Interval.ToString();
 			}
-				
+
 			// If this note and the next one have the exact same time then it's a double note
 			if (i + 1 < notes.Count)
 			{
@@ -150,14 +195,9 @@ public partial class SaveManager : Node
 		}
 	}
 
-	// Import from notes.csv file
-	private void ImportNotesFile()
-	{
-
-	}
-	
 	public void Save()
 	{
+		ExportProjectInfo();
 		ExportInfoFile();
 		ExportNotesFile();
 	}
@@ -165,7 +205,9 @@ public partial class SaveManager : Node
 	public void Open(string path)
 	{
 		_globals.ProjectPath = path;
+		ImportProjectInfo();
 		ImportInfoFile();
 		ImportSongFile();
+		ImportNotesFile();
 	}
 }

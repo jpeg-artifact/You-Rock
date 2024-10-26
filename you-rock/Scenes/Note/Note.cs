@@ -15,7 +15,11 @@ public partial class Note : Area2D
 	Crush = 5
 	Ride = 6
 	*/
-	[Export] public int Color { get; set; }
+	private int _color;
+	[Export] public int Color { 
+		get { return _color; }
+		set { _color = value; }
+	}
 
 	private Globals _globals;
 	private AudioStreamPlayer _audioStreamPlayer;
@@ -25,8 +29,8 @@ public partial class Note : Area2D
     {
         _globals = GetNode<Globals>("/root/Globals");
 		_audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-		SetSound(_globals.PercussionTypeFocused);
 		_globals.BeatPositionChanged += PlaySound;
+		SetSound(Color);
 
 		MouseEntered += SetFocusTrue;
 		MouseExited += SetFocusFalse;
