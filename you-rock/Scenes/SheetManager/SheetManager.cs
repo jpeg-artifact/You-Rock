@@ -59,17 +59,17 @@ public partial class SheetManager : Node2D
 
     public Sheet GetSheetFromTimePosition(float timePosition)
 	{
-		timePosition = Math.Max(timePosition, 0);
-		int sheetIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline / 4) - 1;
+		int sheetIndex = Math.Max((int)Mathf.Ceil(timePosition / _globals.TimePerTimeline / 4) - 1, 0);
+        GD.Print("Sheet: " + sheetIndex);
 		Sheet sheet = GetChildren()[sheetIndex] as Sheet;
 		return sheet;
 	}
 
 	public Timeline GetTimelineFromTimePosition(float timePosition)
 	{
-		timePosition = Math.Max(timePosition, 0);
 		Sheet sheet = GetSheetFromTimePosition(timePosition);
-		int timelineIndex = (int)Mathf.Ceil(timePosition / _globals.TimePerTimeline - 1) % 4;
+		int timelineIndex = Math.Max((int)Mathf.Ceil(timePosition / _globals.TimePerTimeline - 1) % 4, 0);
+        GD.Print("Timeline: " + timelineIndex);
 		Timeline timeline = sheet.GetNode<Node2D>("Timelines").GetChildren()[timelineIndex] as Timeline;
 		return timeline;
 	}

@@ -105,10 +105,10 @@ height = 170
 size = Vector2(555, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pvkd"]
-size = Vector2(555, 14)
+size = Vector2(563, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m87ab"]
-size = Vector2(555, 194)
+size = Vector2(563, 194)
 
 [node name="Timeline" type="Node2D"]
 script = ExtResource("1_sldvt")
@@ -463,5 +463,5 @@ shape = SubResource("RectangleShape2D_6pvkd")
 position = Vector2(0, 85)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea"]
-position = Vector2(278, 0)
+position = Vector2(277.5, 0)
 shape = SubResource("RectangleShape2D_m87ab")

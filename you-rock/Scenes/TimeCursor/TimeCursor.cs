@@ -18,6 +18,7 @@ public partial class TimeCursor : Node2D
 
 	private void PositionTimeCursor(float timePosition)
 	{
+		timePosition = Math.Clamp(timePosition, 0, _globals.SongLengthInSeconds);
 		Timeline timeline = _sheetManager.GetTimelineFromTimePosition(timePosition);
 		Sheet sheet = _sheetManager.GetSheetFromTimePosition(timePosition);
 

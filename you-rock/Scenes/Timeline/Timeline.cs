@@ -98,7 +98,7 @@ public partial class Timeline : Node2D
             float sheetOffset = _globals.TimePerTimeline * _sheet.Index * 4 + _globals.TimePerTimeline * (Index + 1) - _globals.TimePerTimeline;
             float timelineOffset = _globals.TimePerTimeline * ((GetGlobalMousePosition().X - _sheet.Position.X - Position.X) / PixelWidth);
 
-            _globals.TimePosition = Mathf.Max(sheetOffset + timelineOffset, 0);
+            _globals.TimePosition = sheetOffset + timelineOffset;
         }
 
         if (MouseHoverOver)
@@ -106,7 +106,7 @@ public partial class Timeline : Node2D
             float sheetOffset = _globals.TimePerTimeline * _sheet.Index * 4 + _globals.TimePerTimeline * (Index + 1) - _globals.TimePerTimeline;
             float timelineOffset = _globals.TimePerTimeline * ((GetGlobalMousePosition().X - _sheet.Position.X - Position.X) / PixelWidth);
 
-            _globals.MouseCursorTimePosition = Mathf.Max(sheetOffset + timelineOffset, 0);
+            _globals.MouseCursorTimePosition = sheetOffset + timelineOffset;
         }
     }
 }

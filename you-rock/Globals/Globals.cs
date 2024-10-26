@@ -110,7 +110,7 @@ public partial class Globals : Node
 		} 
 		set {
 			EmitSignal(SignalName.TimePositionChanged, value); 
-			_timePosition = value;
+			_timePosition = Math.Clamp(value, 0, SongLengthInSeconds);
 			float newBeatPosition = Mathf.Round((float)TotalBeats * (TimePosition / (float)SongLengthInSeconds) * BeatsPerTimeline) / BeatsPerTimeline;
 			if (newBeatPosition != BeatPosition)
 				BeatPosition = newBeatPosition;
