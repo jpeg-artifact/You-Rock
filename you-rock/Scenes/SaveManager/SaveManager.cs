@@ -168,13 +168,9 @@ public partial class SaveManager : Node
 				color2 = color1;
 
 			if (int.Parse(color2) < int.Parse(color1))
-			{
-				string temp = color1;
-				color1 = color2;
-				color2 = temp;
-			}
+                (color2, color1) = (color1, color2);
 
-			switch (color1)
+            switch (color1)
 			{
 				case "2":
 					aux = "7";
@@ -183,6 +179,9 @@ public partial class SaveManager : Node
 					aux = "6";
 					break;
 				case "5":
+					aux = "5";
+					break;
+				case "3":
 					aux = "5";
 					break;
 				case "6":
