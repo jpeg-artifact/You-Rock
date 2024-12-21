@@ -17,7 +17,15 @@ public partial class SaveManager : Node
 		_noteManager = GetNode<NoteManager>("/root/Main/NoteManager");
 	}
 
-	private void OnSaveAsFileDialogDirSelected(string path)
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed("Save"))
+		{
+			Save();
+		}
+    }
+
+    private void OnSaveAsFileDialogDirSelected(string path)
 	{
 		_globals.ProjectPath = path;
 		Save();
